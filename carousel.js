@@ -213,4 +213,116 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Product Card Image Carousel
+    const productCards = document.querySelectorAll('[data-product-card]');
+    productCards.forEach(card => {
+        const imageWrapper = card.querySelector('.rounded-2xl.overflow-hidden.mb-3');
+        const imagesContainer = card.querySelector('[data-product-images]');
+        const dots = card.querySelectorAll('[data-dot]');
+        const totalSlides = dots.length;
+        let currentIndex = 0;
+
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides || index === currentIndex) return;
+            currentIndex = index;
+            imagesContainer.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-gray-800', i === index);
+                dot.classList.toggle('bg-gray-300', i !== index);
+            });
+        }
+
+        // Mouse move on image - position determines which slide
+        imageWrapper.addEventListener('mousemove', (e) => {
+            const rect = imageWrapper.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percent = x / rect.width;
+            const slideIndex = Math.min(Math.floor(percent * totalSlides), totalSlides - 1);
+            goToSlide(slideIndex);
+        });
+
+        // Reset to first slide on mouse leave
+        imageWrapper.addEventListener('mouseleave', () => {
+            goToSlide(0);
+        });
+
+        // Dots click
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(parseInt(dot.dataset.dot));
+            });
+        });
+
+        // Touch swipe
+        let startX = 0;
+        imageWrapper.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+        imageWrapper.addEventListener('touchend', (e) => {
+            const diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentIndex < totalSlides - 1) goToSlide(currentIndex + 1);
+                else if (diff < 0 && currentIndex > 0) goToSlide(currentIndex - 1);
+            }
+        });
+    });
+
+    // Yenilikler Section Carousel (4 cards at a time)
+    const yeniliklerTrack = document.getElementById('yenilikler-track');
+    const yeniliklerNext = document.getElementById('yenilikler-next');
+    const yeniliklerPrev = document.getElementById('yenilikler-prev');
+
+    if (yeniliklerTrack && yeniliklerNext && yeniliklerPrev) {
+        let yeniliklerPage = 0;
+        const cardsPerPage = window.innerWidth >= 768 ? 4 : 2;
+        const totalCards = yeniliklerTrack.children.length;
+        const totalPages = Math.ceil(totalCards / cardsPerPage) - 1;
+
+        function updateYenilikler() {
+            const slidePercent = (yeniliklerPage * cardsPerPage / totalCards) * 100;
+            yeniliklerTrack.style.transform = `translateX(-${slidePercent}%)`;
+            yeniliklerPrev.classList.toggle('hidden', yeniliklerPage === 0);
+            yeniliklerNext.classList.toggle('hidden', yeniliklerPage >= totalPages);
+        }
+
+        yeniliklerNext.addEventListener('click', () => {
+            if (yeniliklerPage < totalPages) {
+                yeniliklerPage++;
+                updateYenilikler();
+            }
+        });
+
+        yeniliklerPrev.addEventListener('click', () => {
+            if (yeniliklerPage > 0) {
+                yeniliklerPage--;
+                updateYenilikler();
+            }
+        });
+
+        updateYenilikler();
+    }
+
+    // Language Selector
+    const langSelector = document.getElementById('lang-selector');
+    const langDropdown = document.getElementById('lang-dropdown');
+    const langCurrent = document.getElementById('lang-current');
+
+    if (langSelector && langDropdown && langCurrent) {
+        langSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('hidden');
+        });
+
+        langDropdown.querySelectorAll('[data-lang]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                langCurrent.textContent = item.dataset.lang;
+                langDropdown.classList.add('hidden');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            langDropdown.classList.add('hidden');
+        });
+    }
 });
