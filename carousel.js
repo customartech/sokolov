@@ -190,4 +190,27 @@ document.addEventListener('DOMContentLoaded', function() {
             startInterval();
         });
     }
+
+    // Categories Carousel
+    const categoriesTrack = document.getElementById('categories-track');
+    const categoriesPrev = document.getElementById('categories-prev');
+    const categoriesNext = document.getElementById('categories-next');
+
+    if (categoriesTrack && categoriesPrev && categoriesNext) {
+        const scrollAmount = 200; // Scroll by 200px
+
+        categoriesPrev.addEventListener('click', () => {
+            categoriesTrack.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        categoriesNext.addEventListener('click', () => {
+            categoriesTrack.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

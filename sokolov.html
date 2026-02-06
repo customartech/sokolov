@@ -102,28 +102,28 @@
         <!-- HERO SLIDER SECTION -->
 
 
-<div id="default-carousel" class="relative w-full" data-carousel="slide">
+<div id="default-carousel" class="relative w-full flex justify-center" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-[70vh] overflow-hidden rounded-base">
+    <div class="relative h-[70vh] overflow-hidden" style="border-radius: 20px; max-width: 90vw;">
          <!-- Item 1 -->
-        <div class="duration-700 ease-in-out" data-carousel-item="0">
-            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <div class="duration-700 ease-in-out w-full h-full" data-carousel-item="0">
+            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="w-full h-full object-cover" alt="...">
         </div>
         <!-- Item 2 -->
-        <div class="duration-700 ease-in-out" data-carousel-item="1">
-            <img src="https://img.freepik.com/free-photo/woman-s-arms-wearing-golden-jewelry_23-2149640599.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <div class="duration-700 ease-in-out w-full h-full" data-carousel-item="1">
+            <img src="https://img.freepik.com/free-photo/woman-s-arms-wearing-golden-jewelry_23-2149640599.jpg" class="w-full h-full object-cover" alt="...">
         </div>
         <!-- Item 3 -->
-        <div class="duration-700 ease-in-out" data-carousel-item="2">
-            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <div class="duration-700 ease-in-out w-full h-full" data-carousel-item="2">
+            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="w-full h-full object-cover" alt="...">
         </div>
         <!-- Item 4 -->
-        <div class="duration-700 ease-in-out" data-carousel-item="3">
-            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <div class="duration-700 ease-in-out w-full h-full" data-carousel-item="3">
+            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="w-full h-full object-cover" alt="...">
         </div>
         <!-- Item 5 -->
-        <div class="duration-700 ease-in-out" data-carousel-item="4">
-            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <div class="duration-700 ease-in-out w-full h-full" data-carousel-item="4">
+            <img src="https://cdn-cloudflare.emporium.az/jewellery/main-banner-mobile.jpg" class="w-full h-full object-cover" alt="...">
         </div>
     </div>
     <!-- Slider indicators -->
@@ -149,6 +149,90 @@
     </button>
 </div>
 
+        <!-- Categories Section -->
+        <div class="bg-gray-50 py-12 relative">
+            <div class="container mx-auto px-4">
+                
+                <!-- Categories Carousel Container -->
+                <div class="relative">
+                    <!-- Categories Track -->
+                    <div class="flex overflow-x-auto gap-4 scroll-smooth" id="categories-track">
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="heart" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Üzüklər</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="gem" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Qolbağlar</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Sırğalar</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="crown" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Boyunbağlar</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="zap" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Bilərziklər</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="gift" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Setlər</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="diamond" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Zərgərlik</h3>
+                            </div>
+                        </div>
+                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="flex items-center justify-center gap-3">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-gray-600"></i>
+                                </div>
+                                <h3 class="text-sm font-medium">Aksessuarlar</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button id="categories-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow z-10">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <button id="categories-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow z-10">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <div class="container mx-auto px-4 py-8">
 
