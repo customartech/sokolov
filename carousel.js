@@ -372,6 +372,58 @@ document.addEventListener('DOMContentLoaded', function() {
         updateKolleksiya();
     }
 
+    // Kataloq Mega Menu Toggle
+    const kataloqBtn = document.getElementById('kataloq-btn');
+    const kataloqMenu = document.getElementById('kataloq-menu');
+    const kataloqIconMenu = document.getElementById('kataloq-icon-menu');
+    const kataloqIconClose = document.getElementById('kataloq-icon-close');
+
+    if (kataloqBtn && kataloqMenu && kataloqIconMenu && kataloqIconClose) {
+        kataloqBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !kataloqMenu.classList.contains('hidden');
+            kataloqMenu.classList.toggle('hidden');
+            kataloqIconMenu.classList.toggle('hidden', !isOpen);
+            kataloqIconClose.classList.toggle('hidden', isOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!kataloqMenu.contains(e.target) && !kataloqBtn.contains(e.target)) {
+                kataloqMenu.classList.add('hidden');
+                kataloqIconMenu.classList.remove('hidden');
+                kataloqIconClose.classList.add('hidden');
+            }
+        });
+    }
+
+    // Kataloq Sidebar Category Switching
+    const catLinks = document.querySelectorAll('.kataloq-cat');
+    const catPanels = document.querySelectorAll('.kataloq-panel');
+
+    catLinks.forEach(link => {
+        link.addEventListener('mouseenter', (e) => {
+            e.preventDefault();
+            const category = link.getAttribute('data-category');
+
+            // Update sidebar active state
+            catLinks.forEach(cl => {
+                cl.classList.remove('bg-gray-100', 'text-gray-800');
+                cl.classList.add('text-gray-600');
+            });
+            link.classList.add('bg-gray-100', 'text-gray-800');
+            link.classList.remove('text-gray-600');
+
+            // Show matching panel, hide others
+            catPanels.forEach(panel => {
+                if (panel.getAttribute('data-panel') === category) {
+                    panel.classList.remove('hidden');
+                } else {
+                    panel.classList.add('hidden');
+                }
+            });
+        });
+    });
+
     // Language Selector
     const langSelector = document.getElementById('lang-selector');
     const langDropdown = document.getElementById('lang-dropdown');

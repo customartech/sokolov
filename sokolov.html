@@ -82,8 +82,9 @@
 
             <!-- Lower Row -->
             <div class="hidden lg:flex items-center justify-between py-4">
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px" id="kataloq-btn">
+                    <i data-lucide="menu" class="w-5 h-5" id="kataloq-icon-menu"></i>
+                    <i data-lucide="x" class="w-5 h-5 hidden" id="kataloq-icon-close"></i>
                     KATALOQ
                 </button>
 
@@ -105,6 +106,280 @@
                 <div class="relative">
                     <input type="text" placeholder="Axtarış..." class="w-full bg-gray-100 rounded-lg py-2 pl-10 pr-4 text-sm">
                     <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-[18px] h-[18px]"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kataloq Mega Menu -->
+        <div class="hidden absolute left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50" id="kataloq-menu" style="top: 100%; height: 100vh;">
+            <div class="container mx-auto flex py-8">
+                <!-- Left Sidebar -->
+                <div class="w-[220px] flex-shrink-0 border-r border-gray-200 pr-6">
+                    <ul class="space-y-1" id="kataloq-sidebar">
+                        <li><a href="#" data-category="zinet" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-800 bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Zinət əşyaları</a></li>
+                        <li><a href="#" data-category="material" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Material</a></li>
+                        <li><a href="#" data-category="saatlar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Saatlar</a></li>
+                        <li><a href="#" data-category="cantalar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Çantalar, aksessuarlar</a></li>
+                        <li><a href="#" data-category="kosmetika" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Kosmetika</a></li>
+                        <li><a href="#" data-category="temizleyici" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Təmizləyici vasitələr</a></li>
+                        <li><a href="#" data-category="qablar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Qablar</a></li>
+                        <li><a href="#" data-category="saxlama" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Saxlama və qulluq</a></li>
+                        <li><a href="#" data-category="hediyye" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Hədiyyə kartı</a></li>
+                        <li><a href="#" data-category="kolleksiyalar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Kolleksiyalar</a></li>
+                        <li><a href="#" data-category="sifarisle" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Sifarişlə zinət</a></li>
+                        <li><a href="#" data-category="secmeler" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Seçmələr</a></li>
+                        <li><a href="#" data-category="merch" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Merch SOKOLOV</a></li>
+                    </ul>
+                </div>
+                <!-- Right Grid -->
+                <div class="flex-1 pl-8" id="kataloq-content">
+                    <!-- Zinət əşyaları -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel" data-panel="zinet">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Bütün zinət əşyaları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Bütün zinət əşyaları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Üzüklər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Üzüklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Sırğalar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sırğalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Zəncirlər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zəncirlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Kulon və asılqanlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kulon və asılqanlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Bilərziklər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Bilərziklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Broşlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Broşlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Şarmlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Şarmlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Kolye</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kolye" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Pirsinq</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Pirsinq" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Zaponkalar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zaponkalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Sıxaclar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sıxaclar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Material -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="material">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Qızıl</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qızıl" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Gümüş</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Gümüş" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Platinium</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Platinium" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Almaz</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Almaz" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Fianit</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Fianit" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">İnci</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="İnci" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Saatlar -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="saatlar">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Qadın saatları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qadın saatları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Kişi saatları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kişi saatları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Uşaq saatları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Uşaq saatları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Saat kəmərləri</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Saat kəmərləri" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Çantalar -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="cantalar">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Çantalar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Çantalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Pul kisələri</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Pul kisələri" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Kəmərlər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kəmərlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Eynəklər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Eynəklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Şarflar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Şarflar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Kosmetika -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="kosmetika">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Dodaq boyası</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Dodaq boyası" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Dırnaq lakı</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Dırnaq lakı" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Ətir</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Ətir" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Təmizləyici vasitələr -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="temizleyici">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Zinət təmizləyicisi</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zinət təmizləyicisi" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Parçalama dəsmalı</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Parçalama dəsmalı" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Qablar -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="qablar">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Gümüş qablar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Gümüş qablar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Çay dəsti</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Çay dəsti" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Qaşıqlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qaşıqlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Saxlama və qulluq -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="saxlama">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Zinət qutuları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zinət qutuları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Qulluq dəstləri</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qulluq dəstləri" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Hədiyyə kartı -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="hediyye">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Hədiyyə kartları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Hədiyyə kartları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Hədiyyə dəstləri</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Hədiyyə dəstləri" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Hədiyyə qutuları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Hədiyyə qutuları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Kolleksiyalar -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="kolleksiyalar">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Yeni kolleksiya</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Yeni kolleksiya" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Klassik</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Klassik" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Trend</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Trend" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Limitli seriya</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Limitli seriya" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Sifarişlə zinət -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="sifarisle">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Fərdi sifariş</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Fərdi sifariş" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Qravüra</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qravüra" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Seçmələr -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="secmeler">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Ən çox satılanlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Ən çox satılanlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Yeni gələnlər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Yeni gələnlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Endirimli</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Endirimli" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                    <!-- Merch SOKOLOV -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="merch">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Köynəklər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Köynəklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Sviterşotlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sviterşotlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Aksessuarlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Aksessuarlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
