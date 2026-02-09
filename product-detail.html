@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKOLOV - Qızıldan sırğalar brilyantla</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+    <!-- 1. Top Notification Bar (Pink) -->
+    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+        <div class="flex-1 text-center">
+            <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
+            HƏR ŞEYƏ *Ətraflı
+        </div>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+    </div>
+
+    <!-- 2. Main Header Container -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div class="container mx-auto">
+            <div class="flex items-center py-4">
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700 flex-1">
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Bakı</span>
+                    </div>
+                    <a href="#" class="hover:text-black">Mağazalar</a>
+                    <a href="#" class="hover:text-black">Çatdırılma və ödəniş</a>
+                </div>
+                <button class="lg:hidden" id="menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <a href="sokolov.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                    <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
+                </a>
+                <div class="flex items-center gap-6 flex-1 justify-end">
+                    <div class="hidden xl:flex flex-col items-end mr-4">
+                        <span class="font-bold text-sm">8 800 1000 750</span>
+                        <span class="text-xs text-gray-500">Sifariş üçün</span>
+                    </div>
+                    <div class="hidden xl:flex items-center gap-1 cursor-pointer relative" id="lang-selector">
+                        <span class="text-sm font-medium" id="lang-current">AZ</span>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center justify-between py-4">
+                <a href="sokolov.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    KATALOQ
+                </a>
+                <div class="w-1/2 relative">
+                    <input type="text" placeholder="Kataloq üzrə axtarış" class="w-full border border-gray-300 rounded px-4 py-3 pl-10 focus:outline-none focus:border-black transition-colors placeholder-gray-500 header-40px">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                </div>
+                <div class="flex items-center gap-8 text-gray-600">
+                    <div class="relative cursor-pointer" id="header-fav">
+                        <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
+                        <span id="fav-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
+                    </div>
+                    <a href="cart.html" class="relative cursor-pointer" id="header-cart">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
+                    </a>
+                    <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <a href="login.html" class="hidden md:block">
+                        <i data-lucide="log-in" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 border-b border-gray-200">
+        <div class="container mx-auto py-3 px-4">
+            <nav class="flex items-center gap-2 text-xs text-gray-500">
+                <a href="sokolov.html" class="hover:text-gray-900">Ana səhifə</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <a href="products.html" class="hover:text-gray-900">Sırğalar</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <span class="text-gray-900 font-medium">Qızıldan sırğalar brilyantla</span>
+            </nav>
+        </div>
+    </div>
+
+    <main class="py-8">
+        <div class="container mx-auto px-20">
+
+            <!-- Product Detail Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+
+                <!-- Left: Product Images -->
+                <div class="flex gap-6 lg:col-span-2">
+                    <!-- Vertical Thumbnails -->
+                    <div class="hidden md:flex flex-col gap-3" id="thumb-list">
+                        <button class="w-20 h-20 rounded-lg overflow-hidden border-2 border-blue-500 flex-shrink-0" data-thumb="0">
+                            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=150&q=80" alt="Thumb 1" class="w-full h-full object-cover">
+                        </button>
+                        <button class="w-20 h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 flex-shrink-0" data-thumb="1">
+                            <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=150&q=80" alt="Thumb 2" class="w-full h-full object-cover">
+                        </button>
+                        <button class="w-20 h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 flex-shrink-0" data-thumb="2">
+                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=150&q=80" alt="Thumb 3" class="w-full h-full object-cover">
+                        </button>
+                        <button class="w-20 h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 flex-shrink-0" data-thumb="3">
+                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=150&q=80" alt="Thumb 4" class="w-full h-full object-cover">
+                        </button>
+                        <button class="w-20 h-20 rounded-lg overflow-hidden border-2 border-transparent hover:border-gray-300 flex-shrink-0" data-thumb="4">
+                            <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=150&q=80" alt="Thumb 5" class="w-full h-full object-cover">
+                        </button>
+                    </div>
+
+                    <!-- Main Image -->
+                    <div class="flex-1 relative rounded-2xl overflow-hidden bg-gray-50">
+                        <img id="main-image" src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=80" alt="Məhsul" class="w-full h-[550px] object-cover">
+                        <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded">-71%</span>
+                        <button class="absolute top-4 right-4 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition">
+                            <i data-lucide="share-2" class="w-5 h-5 text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Product Info -->
+                <div>
+                    <!-- Price & Article -->
+                    <div class="mb-3">
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="text-2xl font-bold text-gray-900">72 500 ₼</span>
+                            <span class="text-base text-gray-400 line-through">249 990 ₼</span>
+                            <span class="text-sm font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">-71%</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Artikul: 1021151-01</p>
+                    </div>
+
+                    <!-- Product Title -->
+                    <h1 class="text-lg font-bold mb-3">Qızıldan sırğalar brilyantla</h1>
+
+                    <!-- Add to Cart & Favorite -->
+                    <div class="flex gap-3 mb-4">
+                        <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl text-base transition-colors" id="add-to-cart-btn">
+                            Səbətə at
+                        </button>
+                        <button class="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition" id="sidebar-fav-btn">
+                            <i data-lucide="heart" class="w-5 h-5 text-gray-400"></i>
+                        </button>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <button class="flex items-center gap-1.5 text-xs text-gray-600 hover:text-gray-900 transition">
+                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                            Paylaş
+                        </button>
+                    </div>
+
+                    <!-- Delivery Info -->
+                    <div class="border border-gray-200 rounded-xl p-3 mb-4">
+                        <h3 class="font-bold text-xs mb-2">Çatdırılma</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="truck" class="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-xs font-medium">Kuryer ilə</p>
+                                    <p class="text-xs text-gray-500">1-3 iş günü, pulsuz (200 ₼-dən yuxarı)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-xs font-medium">Mağazadan götür</p>
+                                    <p class="text-xs text-gray-500">Bu gün, pulsuz</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="package" class="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-xs font-medium">Poçt ilə</p>
+                                    <p class="text-xs text-gray-500">3-7 iş günü</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Characteristics -->
+                    <div class="border border-gray-200 rounded-xl p-3 mb-4">
+                        <h3 class="font-bold text-xs mb-2">Xüsusiyyətlər</h3>
+                        <div class="space-y-1.5 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Material</span>
+                                <span class="font-medium">585 əyarlı qızıl</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Daş</span>
+                                <span class="font-medium">Brilyant</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Çəki</span>
+                                <span class="font-medium">3.42 qr</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Bağlama tipi</span>
+                                <span class="font-medium">İngilis bağlama</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Rəng</span>
+                                <span class="font-medium">Sarı qızıl</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Komplektdə alın -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold mb-6">Komplektdə alın</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                    <div class="rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[240px]" data-product-card>
+                        <button class="absolute top-3 right-3 z-10">
+                            <i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i>
+                        </button>
+                        <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                            <div class="flex transition-transform duration-300" data-product-images>
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Üzük" class="w-full h-[160px] object-cover flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Üzük 2" class="w-full h-[160px] object-cover flex-shrink-0">
+                            </div>
+                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                            </div>
+                        </div>
+                        <div class="px-1 pb-3">
+                            <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                <span class="text-[14px] font-bold text-gray-900">29 900 ₼</span>
+                                <span class="text-xs text-gray-400 line-through">89 990 ₼</span>
+                            </div>
+                            <p class="text-[12px] text-gray-600">Qızıldan brilyantlı üzük</p>
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                        <button class="absolute top-3 right-3 z-10">
+                            <i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i>
+                        </button>
+                        <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                            <div class="flex transition-transform duration-300" data-product-images>
+                                <img src="https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı" class="w-full h-[200px] object-cover flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı 2" class="w-full h-[200px] object-cover flex-shrink-0">
+                            </div>
+                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                            </div>
+                        </div>
+                        <div class="px-1 pb-3">
+                            <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                <span class="text-[14px] font-bold text-gray-900">54 300 ₼</span>
+                                <span class="text-xs text-gray-400 line-through">179 990 ₼</span>
+                            </div>
+                            <p class="text-[12px] text-gray-600">Qızıldan brilyantlı boyunbağı</p>
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                        <button class="absolute top-3 right-3 z-10">
+                            <i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i>
+                        </button>
+                        <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                            <div class="flex transition-transform duration-300" data-product-images>
+                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Qolbaq" class="w-full h-[200px] object-cover flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Qolbaq 2" class="w-full h-[200px] object-cover flex-shrink-0">
+                            </div>
+                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                            </div>
+                        </div>
+                        <div class="px-1 pb-3">
+                            <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                <span class="text-[14px] font-bold text-gray-900">41 200 ₼</span>
+                                <span class="text-xs text-gray-400 line-through">139 990 ₼</span>
+                            </div>
+                            <p class="text-[12px] text-gray-600">Qızıldan brilyantlı qolbaq</p>
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Məhsul haqqında -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold mb-6">Məhsul haqqında</h2>
+                <div class="prose max-w-none text-sm text-gray-600 leading-relaxed">
+                    <p class="mb-4">SOKOLOV brendinin 585 əyarlı qızıldan hazırlanmış bu zərif sırğalar, brilyant daşları ilə bəzədilmişdir. Hər bir sırğada yüksək keyfiyyətli brilyant daşı yerləşdirilib ki, bu da məhsula xüsusi parlaqlıq və elegantlıq qatır.</p>
+                    <p class="mb-4">İngilis bağlama sistemi ilə təchiz edilmiş bu sırğalar, gündəlik istifadə üçün rahat və etibarlıdır. Sarı qızılın isti tonu brilyantın parıltısı ilə mükəmməl harmoniya yaradır.</p>
+                    <p class="mb-4">Bu model həm gündəlik, həm də xüsusi münasibətlər üçün ideal seçimdir. SOKOLOV-un keyfiyyət standartlarına uyğun olaraq istehsal edilmişdir və hər bir məhsul sertifikatla təmin olunur.</p>
+                    <h3 class="text-base font-bold text-gray-900 mt-6 mb-3">Qulluq qaydaları</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Kimyəvi maddələrlə təmasdan qoruyun</li>
+                        <li>Yumşaq parça ilə silin</li>
+                        <li>Ayrıca qutuda saxlayın</li>
+                        <li>Duş və hovuzda çıxarın</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Oxşar məhsullar -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold mb-6">Oxşar məhsullar</h2>
+                <div class="relative overflow-hidden">
+                    <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="similar-track">
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">58 900 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">189 990 ₼</span>
+                                    <span class="text-xs font-bold text-red-500">-69%</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Qızıldan topazlı sırğalar</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">31 200 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">99 990 ₼</span>
+                                    <span class="text-xs font-bold text-red-500">-69%</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Gümüşdən fianitli sırğalar</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">89 500 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">299 990 ₼</span>
+                                    <span class="text-xs font-bold text-red-500">-70%</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Qızıldan brilyantlı pussetlər</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">25 800 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">79 990 ₼</span>
+                                    <span class="text-xs font-bold text-red-500">-68%</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Gümüşdən halqa sırğalar</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">115 000 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">389 990 ₼</span>
+                                    <span class="text-xs font-bold text-red-500">-71%</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Qızıldan zümrüdlü sırğalar</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Birlikdə alırlar -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold mb-6">Birlikdə alırlar</h2>
+                <div class="relative overflow-hidden">
+                    <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="together-track">
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">43 400 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">199 990 ₼</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Ağ qızıldan brilyantlı sırğalar</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">19 900 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">59 990 ₼</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Gümüşdən fianitli pussetlər</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">66 300 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">219 990 ₼</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Qızıldan brilyantlı asma sırğalar</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[220px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[220px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">38 700 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">129 990 ₼</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Qızıldan topazlı pussetlər</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                        <div class="w-[200px] flex-shrink-0 rounded-2xl overflow-hidden group/card hover:shadow-lg transition-shadow cursor-pointer relative min-h-[280px]" data-product-card>
+                            <button class="absolute top-3 right-3 z-10"><i data-lucide="heart" class="w-5 h-5 text-gray-400 hover:text-red-500 transition-colors"></i></button>
+                            <div class="rounded-2xl overflow-hidden mb-2 bg-gray-50 relative">
+                                <div class="flex transition-transform duration-300" data-product-images>
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[180px] object-cover flex-shrink-0">
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-300 cursor-pointer" data-dot="1"></span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-3">
+                                <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                                    <span class="text-[14px] font-bold">54 200 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through">179 990 ₼</span>
+                                </div>
+                                <p class="text-[12px] text-gray-600">Ağ qızıldan fianitli klipslər</p>
+                                <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl mt-2 hidden group-hover/card:block transition-all text-xs">Səbətə at</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-12">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Brend haqqında</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Xəbərlər</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Vakansiyalar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Geri qaytarma</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Bonus proqramı</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Ölçü cədvəli</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>8 (800) 100-00-00</li>
+                    <li>support@sokolov.ru</li>
+                    <li class="flex gap-4 mt-4">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">IG</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">FB</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">YT</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 border-t border-gray-300 pt-8 text-xs text-gray-400 text-center">
+            2026 SOKOLOV. Bütün hüquqlar qorunur.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Thumbnail click -> change main image
+        const mainImage = document.getElementById('main-image');
+        const thumbs = document.querySelectorAll('[data-thumb]');
+        const mainImages = [
+            'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=800&q=80'
+        ];
+
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const idx = parseInt(thumb.getAttribute('data-thumb'));
+                mainImage.src = mainImages[idx];
+                thumbs.forEach(t => {
+                    t.classList.remove('border-blue-500');
+                    t.classList.add('border-transparent');
+                });
+                thumb.classList.remove('border-transparent');
+                thumb.classList.add('border-blue-500');
+            });
+        });
+
+        // Add to cart button
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const cartBadge = document.getElementById('cart-badge');
+        let cartCount = 0;
+
+        addToCartBtn.addEventListener('click', () => {
+            const isInCart = addToCartBtn.classList.contains('bg-green-500');
+            if (isInCart) {
+                addToCartBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                addToCartBtn.classList.add('bg-orange-500', 'hover:bg-orange-600');
+                addToCartBtn.textContent = 'Səbətə at';
+                cartCount--;
+            } else {
+                addToCartBtn.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                addToCartBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                addToCartBtn.textContent = 'Səbətdədir ✓';
+                cartCount++;
+            }
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.remove('hidden');
+                cartBadge.classList.add('flex');
+            } else {
+                cartBadge.classList.add('hidden');
+                cartBadge.classList.remove('flex');
+            }
+        });
+
+        // Detail page fav button
+        const sidebarFavBtn = document.getElementById('sidebar-fav-btn');
+        const favBadge = document.getElementById('fav-badge');
+        let favCount = 0;
+
+        sidebarFavBtn.addEventListener('click', () => {
+            const svg = sidebarFavBtn.querySelector('svg');
+            const isFav = svg.getAttribute('fill') === 'red';
+            if (isFav) {
+                svg.setAttribute('fill', 'none');
+                svg.setAttribute('stroke', 'currentColor');
+                svg.classList.remove('text-red-500');
+                svg.classList.add('text-gray-400');
+                favCount--;
+            } else {
+                svg.setAttribute('fill', 'red');
+                svg.setAttribute('stroke', 'red');
+                svg.classList.add('text-red-500');
+                svg.classList.remove('text-gray-400');
+                favCount++;
+            }
+            if (favCount > 0) {
+                favBadge.textContent = favCount;
+                favBadge.classList.remove('hidden');
+                favBadge.classList.add('flex');
+            } else {
+                favBadge.classList.add('hidden');
+                favBadge.classList.remove('flex');
+            }
+        });
+
+        // Product card fav + cart toggles (for carousel cards)
+        document.querySelectorAll('[data-product-card]').forEach(card => {
+            const heartBtn = card.querySelector('button:first-of-type');
+            if (heartBtn) {
+                heartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const svg = heartBtn.querySelector('svg');
+                    if (!svg) return;
+                    const isFav = svg.getAttribute('fill') === 'red';
+                    if (isFav) {
+                        svg.setAttribute('fill', 'none');
+                        svg.setAttribute('stroke', 'currentColor');
+                        svg.classList.remove('text-red-500');
+                        svg.classList.add('text-gray-400');
+                        favCount--;
+                    } else {
+                        svg.setAttribute('fill', 'red');
+                        svg.setAttribute('stroke', 'red');
+                        svg.classList.add('text-red-500');
+                        svg.classList.remove('text-gray-400');
+                        favCount++;
+                    }
+                    if (favCount > 0) {
+                        favBadge.textContent = favCount;
+                        favBadge.classList.remove('hidden');
+                        favBadge.classList.add('flex');
+                    } else {
+                        favBadge.classList.add('hidden');
+                        favBadge.classList.remove('flex');
+                    }
+                });
+            }
+
+            const allBtns = card.querySelectorAll('button');
+            const cartBtn = Array.from(allBtns).find(b => b.textContent.trim() === 'Səbətə at');
+            if (cartBtn) {
+                cartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isInCart = cartBtn.classList.contains('bg-green-500');
+                    if (isInCart) {
+                        cartBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        cartBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                        cartBtn.textContent = 'Səbətə at';
+                        cartCount--;
+                    } else {
+                        cartBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                        cartBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        cartBtn.textContent = 'Səbətdədir ✓';
+                        cartCount++;
+                    }
+                    if (cartCount > 0) {
+                        cartBadge.textContent = cartCount;
+                        cartBadge.classList.remove('hidden');
+                        cartBadge.classList.add('flex');
+                    } else {
+                        cartBadge.classList.add('hidden');
+                        cartBadge.classList.remove('flex');
+                    }
+                });
+            }
+        });
+
+        // Product image swipe for carousel cards
+        document.querySelectorAll('[data-product-card]').forEach(card => {
+            const imagesContainer = card.querySelector('[data-product-images]');
+            const dots = card.querySelectorAll('[data-dot]');
+            if (!imagesContainer || dots.length === 0) return;
+
+            let currentIndex = 0;
+            const totalImages = imagesContainer.querySelectorAll('img').length;
+
+            function goToSlide(index) {
+                currentIndex = index;
+                imagesContainer.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-gray-800', i === index);
+                    dot.classList.toggle('bg-gray-300', i !== index);
+                });
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goToSlide(parseInt(dot.getAttribute('data-dot')));
+                });
+            });
+
+            const imageWrapper = imagesContainer.parentElement;
+            imageWrapper.addEventListener('mousemove', (e) => {
+                const rect = imageWrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percent = x / rect.width;
+                const newIndex = Math.min(Math.floor(percent * totalImages), totalImages - 1);
+                if (newIndex !== currentIndex) goToSlide(newIndex);
+            });
+
+            imageWrapper.addEventListener('mouseleave', () => {
+                goToSlide(0);
+            });
+
+            let startX = 0;
+            imagesContainer.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+            imagesContainer.addEventListener('touchend', (e) => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) {
+                    if (diff > 0 && currentIndex < totalImages - 1) goToSlide(currentIndex + 1);
+                    else if (diff < 0 && currentIndex > 0) goToSlide(currentIndex - 1);
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</body>
+</html>
