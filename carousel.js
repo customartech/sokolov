@@ -424,6 +424,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Favorite Toggle
+    let favCount = 0;
+    const favBadge = document.getElementById('fav-badge');
+
+    document.querySelectorAll('[data-product-card]').forEach(card => {
+        const heartBtn = card.querySelector('button:first-of-type');
+        if (heartBtn) {
+            heartBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                const svg = heartBtn.querySelector('svg');
+                if (!svg) return;
+                const isFav = svg.getAttribute('fill') === 'red';
+
+                if (isFav) {
+                    svg.setAttribute('fill', 'none');
+                    svg.setAttribute('stroke', 'currentColor');
+                    svg.classList.remove('text-red-500');
+                    svg.classList.add('text-gray-400');
+                    favCount--;
+                } else {
+                    svg.setAttribute('fill', 'red');
+                    svg.setAttribute('stroke', 'red');
+                    svg.classList.add('text-red-500');
+                    svg.classList.remove('text-gray-400');
+                    favCount++;
+                }
+
+                if (favCount > 0) {
+                    favBadge.textContent = favCount;
+                    favBadge.classList.remove('hidden');
+                    favBadge.classList.add('flex');
+                } else {
+                    favBadge.classList.add('hidden');
+                    favBadge.classList.remove('flex');
+                }
+            });
+        }
+    });
+
+    // Cart (Səbətə at) Toggle
+    let cartCount = 0;
+    const cartBadge = document.getElementById('cart-badge');
+
+    document.querySelectorAll('[data-product-card]').forEach(card => {
+        const allBtns = card.querySelectorAll('button');
+        const cartBtn = Array.from(allBtns).find(b => b.textContent.trim() === 'Səbətə at');
+        if (cartBtn) {
+            cartBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                const isInCart = cartBtn.classList.contains('bg-green-500');
+
+                if (isInCart) {
+                    cartBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    cartBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                    cartBtn.textContent = 'Səbətə at';
+                    cartCount--;
+                } else {
+                    cartBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                    cartBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                    cartBtn.textContent = 'Səbətdədir ✓';
+                    cartCount++;
+                }
+
+                if (cartCount > 0) {
+                    cartBadge.textContent = cartCount;
+                    cartBadge.classList.remove('hidden');
+                    cartBadge.classList.add('flex');
+                } else {
+                    cartBadge.classList.add('hidden');
+                    cartBadge.classList.remove('flex');
+                }
+            });
+        }
+    });
+
     // Language Selector
     const langSelector = document.getElementById('lang-selector');
     const langDropdown = document.getElementById('lang-dropdown');

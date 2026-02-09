@@ -94,8 +94,14 @@
                 </div>
 
                 <div class="flex items-center gap-8 text-gray-600">
-                    <i data-lucide="heart" class="w-6 h-6 cursor-pointer hover:text-red-500 transition-colors"></i>
-                    <i data-lucide="shopping-bag" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <div class="relative cursor-pointer" id="header-fav">
+                        <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
+                        <span id="fav-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </div>
+                    <div class="relative cursor-pointer" id="header-cart">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </div>
                     <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
                     <i data-lucide="log-in" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
                 </div>
