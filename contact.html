@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Əlaqə - SOKOLOV</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Carousel JS -->
+    <script src="carousel.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+    <!-- 1. Top Notification Bar (Pink) -->
+    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+        <div class="flex-1 text-center">
+            <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
+            HƏR ŞEYƏ *Ətraflı
+        </div>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+    </div>
+
+    <!-- 2. Main Header Container -->
+    <header class="sticky top-0 z-50 bg-white">
+        <div class="container mx-auto">
+            
+            <!-- Upper Row -->
+            <div class="flex items-center py-4">
+                <!-- Left: Location & Links -->
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700 flex-1">
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Bakı</span>
+                    </div>
+                    <a href="#" class="hover:text-black">Mağazalar</a>
+                    <a href="#" class="hover:text-black">Çatdırılma və ödəniş</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden" id="menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Center: Logo -->
+                <div class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                    <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
+                </div>
+
+                <!-- Right: Phone & Icons -->
+                <div class="flex items-center gap-6 flex-1 justify-end">
+                    <div class="hidden xl:flex flex-col items-end mr-4">
+                        <span class="font-bold text-sm">8 800 1000 750</span>
+                        <span class="text-xs text-gray-500">Sifariş üçün</span>
+                    </div>
+                    <div class="hidden xl:flex items-center gap-1 cursor-pointer relative" id="lang-selector">
+                        <span class="text-sm font-medium" id="lang-current">AZ</span>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        <div class="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg hidden z-50" id="lang-dropdown">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="AZ">AZ</a>
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="RU">RU</a>
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="EN">EN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lower Row -->
+            <div class="hidden lg:flex items-center justify-between py-4">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px" id="kataloq-btn">
+                    <i data-lucide="menu" class="w-5 h-5" id="kataloq-icon-menu"></i>
+                    <i data-lucide="x" class="w-5 h-5 hidden" id="kataloq-icon-close"></i>
+                    KATALOQ
+                </button>
+
+                <div class="w-1/2 relative">
+                    <input type="text" placeholder="Kataloq üzrə axtarış" class="w-full border border-gray-300 rounded px-4 py-3 pl-10 focus:outline-none focus:border-black transition-colors placeholder-gray-500 header-40px">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                </div>
+
+                <div class="flex items-center gap-8 text-gray-600">
+                    <div class="relative cursor-pointer" id="header-fav">
+                        <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
+                        <span id="fav-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </div>
+                    <a href="cart.html" class="relative cursor-pointer" id="header-cart">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </a>
+                    <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <a href="login.html" class="hidden md:block"><i data-lucide="log-in" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i></a>
+                </div>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="lg:hidden py-3">
+                <div class="relative">
+                    <input type="text" placeholder="Axtarış..." class="w-full bg-gray-100 rounded-lg py-2 pl-10 pr-4 text-sm">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-[18px] h-[18px]"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kataloq Mega Menu -->
+        <div class="hidden absolute left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50" id="kataloq-menu" style="top: 100%; height: 100vh;">
+            <div class="container mx-auto flex py-8">
+                <!-- Left Sidebar -->
+                <div class="w-[220px] flex-shrink-0 border-r border-gray-200 pr-6">
+                    <ul class="space-y-1" id="kataloq-sidebar">
+                        <li><a href="#" data-category="zinet" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-800 bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Zinət əşyaları</a></li>
+                        <li><a href="#" data-category="material" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Material</a></li>
+                        <li><a href="#" data-category="saatlar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Saatlar</a></li>
+                        <li><a href="#" data-category="cantalar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Çantalar, aksessuarlar</a></li>
+                        <li><a href="#" data-category="kosmetika" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Kosmetika</a></li>
+                        <li><a href="#" data-category="temizleyici" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Təmizləyici vasitələr</a></li>
+                        <li><a href="#" data-category="qablar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Qablar</a></li>
+                        <li><a href="#" data-category="saxlama" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Saxlama və qulluq</a></li>
+                        <li><a href="#" data-category="hediyye" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Hədiyyə kartı</a></li>
+                        <li><a href="#" data-category="kolleksiyalar" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Kolleksiyalar</a></li>
+                        <li><a href="#" data-category="sifarisle" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Sifarişlə zinət</a></li>
+                        <li><a href="#" data-category="secmeler" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Seçmələr</a></li>
+                        <li><a href="#" data-category="merch" class="kataloq-cat flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"><img src="https://cdn.sokolov.ru/upload/site-main-menu/1/L9iqLdAi76MNovWCcY6vLLQEqTehssWV.png" class="w-5 h-5 object-contain"> Merch SOKOLOV</a></li>
+                    </ul>
+                </div>
+                <!-- Right Grid -->
+                <div class="flex-1 pl-8" id="kataloq-content">
+                    <!-- Zinət əşyaları -->
+                    <div class="grid grid-cols-6 gap-3 kataloq-panel" data-panel="zinet">
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Bütün zinət əşyaları</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Bütün zinət əşyaları" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Üzüklər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Üzüklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Sırğalar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sırğalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Qolbaqlar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qolbaqlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Boyunbağılar</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Boyunbağılar" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                            <span class="text-sm text-gray-900 z-10 p-[10px]">Setlər</span>
+                            <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Setlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 border-b border-gray-200">
+        <div class="container mx-auto py-3 px-4">
+            <nav class="flex items-center gap-2 text-xs text-gray-500">
+                <a href="sokolov.html" class="hover:text-gray-900">Ana səhifə</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <span class="text-gray-900 font-medium">Əlaqə</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold mb-4">Bizimlə Əlaqə</h1>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto">Sualınız var? Bizim komanda hər zaman sizin köməyinizdədir</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Phone -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="phone" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Telefon</h3>
+                    <p class="text-gray-600 mb-4">Bazar ertəsi - Şənbə: 09:00 - 18:00</p>
+                    <a href="tel:+994123456789" class="text-blue-600 font-medium hover:text-blue-700">+994 12 345 67 89</a>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="mail" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">E-poçt</h3>
+                    <p class="text-gray-600 mb-4">24 saat ərzində cavab</p>
+                    <a href="mailto:info@sokolov.az" class="text-blue-600 font-medium hover:text-blue-700">info@sokolov.az</a>
+                </div>
+
+                <!-- Address -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Ünvan</h3>
+                    <p class="text-gray-600 mb-4">Bakı şəhəri</p>
+                    <p class="text-gray-800">Nizami küçəsi 123</p>
+                </div>
+            </div>
+
+            <!-- Map and Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Left: Work Hours -->
+                <div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm">
+                        <h2 class="text-2xl font-bold mb-6">İş Saatları</h2>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Bazar ertəsi - Cümə</span>
+                                <span class="font-medium">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Şənbə</span>
+                                <span class="font-medium">10:00 - 16:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Bazar</span>
+                                <span class="font-medium text-red-500">Qapalı</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Social Media -->
+                <div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm">
+                        <h2 class="text-2xl font-bold mb-6">Sosial Media</h2>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors">
+                                <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center hover:bg-pink-200 transition-colors">
+                                <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors">
+                                <i data-lucide="twitter" class="w-6 h-6 text-blue-400"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center hover:bg-red-200 transition-colors">
+                                <i data-lucide="youtube" class="w-6 h-6 text-red-600"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Xəritədə Bizi Tapın</h2>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm h-96 flex items-center justify-center">
+                <div class="text-center">
+                    <i data-lucide="map" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+                    <p class="text-gray-600">Xəritə burada görünəcək</p>
+                    <p class="text-sm text-gray-500 mt-2">Nizami küçəsi 123, Bakı</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SOKOLOV</h3>
+                    <p class="text-gray-400">Zərgərlik sənətinin zirvəsi</p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Səhifələr</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="sokolov.html" class="hover:text-white transition-colors">Ana səhifə</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Məhsullar</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Əlaqə</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div>
+                    <h4 class="font-semibold mb-4">Kateqoriyalar</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Üzüklər</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sırğalar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Qolbaqlar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Boyunbağılar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold mb-4">Əlaqə</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>+994 12 345 67 89</li>
+                        <li>info@sokolov.az</li>
+                        <li>Nizami küçəsi 123, Bakı</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SOKOLOV. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show success message
+            const button = contactForm.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Mesaj göndərildi!';
+            button.classList.add('bg-green-600', 'hover:bg-green-700');
+            button.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('bg-green-600', 'hover:bg-green-700');
+                button.classList.add('bg-blue-600', 'hover:bg-blue-700');
+            }, 3000);
+        });
+
+        // Re-initialize icons after dynamic content
+        setTimeout(() => {
+            lucide.createIcons();
+        }, 100);
+    </script>
+</body>
+</html>

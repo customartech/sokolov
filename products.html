@@ -128,7 +128,7 @@
 
             <div class="flex gap-8">
                 <!-- Left Sidebar Filters -->
-                <aside class="hidden lg:block w-[240px] flex-shrink-0 sticky top-40 self-start max-h-[calc(100vh-180px)] overflow-y-auto">
+                <aside class="hidden lg:block w-[240px] flex-shrink-0 sticky top-40 self-start overflow-y-auto">
                     <!-- Kateqoriya -->
                     <div class="mb-6" data-filter-group>
                         <button class="flex items-center justify-between w-full text-sm font-bold mb-3" data-filter-toggle>
@@ -207,10 +207,13 @@
 
                     <!-- Daş -->
                     <div class="mb-6" data-filter-group>
-                        <button class="flex items-center justify-between w-full text-sm font-bold mb-3" data-filter-toggle>
-                            <span>Daş</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform"></i>
-                        </button>
+                        <div class="flex items-center justify-between mb-3">
+                            <button class="flex items-center justify-between w-full text-sm font-bold" data-filter-toggle>
+                                <span>Daş</span>
+                                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform"></i>
+                            </button>
+                            <button class="text-xs text-blue-500 hover:text-blue-600 font-medium">Hamısını sil</button>
+                        </div>
                         <div class="space-y-2" data-filter-content>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-blue-600">

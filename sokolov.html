@@ -26,12 +26,12 @@
 <body class="bg-white font-sans text-gray-900">
 
     <!-- 1. Top Notification Bar (Pink) -->
-    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+    <div id="notification-banner" class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
         <div class="flex-1 text-center">
             <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
             HƏR ŞEYƏ *Ətraflı
         </div>
-        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900" id="close-banner"></i>
     </div>
 
     <!-- 2. Main Header Container -->
@@ -390,6 +390,15 @@
             </div>
         </div>
     </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 border-b border-gray-200">
+        <div class="container mx-auto py-3 px-4">
+            <nav class="flex items-center gap-2 text-xs text-gray-500">
+                <span class="text-gray-900 font-medium">Ana səhifə</span>
+            </nav>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="mx-auto overflow-hidden">
@@ -1228,5 +1237,19 @@
     
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+    
+    <!-- Banner Close Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBanner = document.getElementById('close-banner');
+            const notificationBanner = document.getElementById('notification-banner');
+            
+            if (closeBanner && notificationBanner) {
+                closeBanner.addEventListener('click', function() {
+                    notificationBanner.style.display = 'none';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
