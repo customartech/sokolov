@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKOLOV - Sifarişi rəsmiləşdir</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+    <!-- 1. Top Notification Bar (Pink) -->
+    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+        <div class="flex-1 text-center">
+            <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
+            HƏR ŞEYƏ *Ətraflı
+        </div>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+    </div>
+
+    <!-- 2. Main Header Container -->
+    <header class="sticky top-0 z-50 bg-white">
+        <div class="container mx-auto">
+            <div class="flex items-center py-4">
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700 flex-1">
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Bakı</span>
+                    </div>
+                    <a href="#" class="hover:text-black">Mağazalar</a>
+                    <a href="#" class="hover:text-black">Çatdırılma və ödəniş</a>
+                </div>
+
+                <button class="lg:hidden" id="menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+
+                <a href="sokolov.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                    <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
+                </a>
+
+                <div class="flex items-center gap-6 flex-1 justify-end">
+                    <div class="hidden xl:flex flex-col items-end mr-4">
+                        <span class="font-bold text-sm">8 800 1000 750</span>
+                        <span class="text-xs text-gray-500">Sifariş üçün</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Steps -->
+    <div class="border-b border-gray-200">
+        <div class="container mx-auto py-4">
+            <div class="flex items-center justify-center gap-4 text-sm">
+                <a href="cart.html" class="flex items-center gap-2 text-gray-400 hover:text-gray-600">
+                    <span class="w-7 h-7 rounded-full border-2 border-gray-300 flex items-center justify-center text-xs font-bold">1</span>
+                    <span class="hidden sm:inline">Səbət</span>
+                </a>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                <div class="flex items-center gap-2 text-blue-600 font-bold" id="step-2">
+                    <span class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">2</span>
+                    <span class="hidden sm:inline">Rəsmiləşdirmə</span>
+                </div>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                <div class="flex items-center gap-2 text-gray-400" id="step-3">
+                    <span class="w-7 h-7 rounded-full border-2 border-gray-300 flex items-center justify-center text-xs font-bold">3</span>
+                    <span class="hidden sm:inline">Hazırdır</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Section -->
+    <main class="py-10">
+        <div class="container mx-auto px-4">
+
+            <!-- Checkout Form -->
+            <div class="flex flex-col lg:flex-row gap-8" id="checkout-form-section">
+                <!-- Left: Form -->
+                <div class="flex-1">
+                    <h1 class="text-2xl font-bold mb-8">Sifarişi rəsmiləşdir</h1>
+
+                    <form id="checkout-form" class="space-y-8">
+                        <!-- Contact Info -->
+                        <div>
+                            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="user" class="w-5 h-5 text-blue-600"></i>
+                                Əlaqə məlumatları
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Ad *</label>
+                                    <input type="text" placeholder="Adınız" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Soyad *</label>
+                                    <input type="text" placeholder="Soyadınız" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">E-poçt *</label>
+                                    <input type="email" placeholder="E-poçt ünvanınız" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Telefon *</label>
+                                    <input type="tel" placeholder="+994 XX XXX XX XX" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Method -->
+                        <div>
+                            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="truck" class="w-5 h-5 text-blue-600"></i>
+                                Çatdırılma üsulu
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <label class="flex items-start gap-3 border-2 border-blue-600 rounded-xl p-4 cursor-pointer bg-blue-50" id="delivery-courier">
+                                    <input type="radio" name="delivery" value="courier" class="mt-1" checked>
+                                    <div>
+                                        <span class="font-bold text-sm">Kuryer çatdırılması</span>
+                                        <p class="text-xs text-gray-500 mt-1">1-3 iş günü</p>
+                                        <p class="text-xs font-bold text-green-600 mt-1">Pulsuz</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-start gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-gray-300 transition-colors" id="delivery-pickup">
+                                    <input type="radio" name="delivery" value="pickup" class="mt-1">
+                                    <div>
+                                        <span class="font-bold text-sm">Mağazadan götür</span>
+                                        <p class="text-xs text-gray-500 mt-1">Bu gün hazır</p>
+                                        <p class="text-xs font-bold text-green-600 mt-1">Pulsuz</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Address -->
+                        <div id="address-section">
+                            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-blue-600"></i>
+                                Çatdırılma ünvanı
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Şəhər *</label>
+                                    <select class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors bg-white">
+                                        <option>Bakı</option>
+                                        <option>Gəncə</option>
+                                        <option>Sumqayıt</option>
+                                        <option>Mingəçevir</option>
+                                        <option>Lənkəran</option>
+                                    </select>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Ünvan *</label>
+                                    <input type="text" placeholder="Küçə, ev, mənzil" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Poçt indeksi</label>
+                                    <input type="text" placeholder="AZ1000" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Qeyd</label>
+                                    <input type="text" placeholder="Əlavə qeyd (mərtəbə, interkom)" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pickup Store -->
+                        <div id="pickup-section" class="hidden">
+                            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="store" class="w-5 h-5 text-blue-600"></i>
+                                Mağaza seçin
+                            </h2>
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 border-2 border-blue-600 rounded-xl p-4 cursor-pointer bg-blue-50">
+                                    <input type="radio" name="store" value="store1" class="mt-1" checked>
+                                    <div>
+                                        <span class="font-bold text-sm">SOKOLOV - 28 May</span>
+                                        <p class="text-xs text-gray-500 mt-1">28 May küç., 15, Bakı</p>
+                                        <p class="text-xs text-gray-500">10:00 - 22:00</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-start gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-gray-300 transition-colors">
+                                    <input type="radio" name="store" value="store2" class="mt-1">
+                                    <div>
+                                        <span class="font-bold text-sm">SOKOLOV - Gənclik Mall</span>
+                                        <p class="text-xs text-gray-500 mt-1">Gənclik Mall, 2-ci mərtəbə, Bakı</p>
+                                        <p class="text-xs text-gray-500">10:00 - 22:00</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-start gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-gray-300 transition-colors">
+                                    <input type="radio" name="store" value="store3" class="mt-1">
+                                    <div>
+                                        <span class="font-bold text-sm">SOKOLOV - Park Bulvar</span>
+                                        <p class="text-xs text-gray-500 mt-1">Park Bulvar AVM, 1-ci mərtəbə, Bakı</p>
+                                        <p class="text-xs text-gray-500">10:00 - 22:00</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div>
+                            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="credit-card" class="w-5 h-5 text-blue-600"></i>
+                                Ödəniş üsulu
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <label class="flex items-center gap-3 border-2 border-blue-600 rounded-xl p-4 cursor-pointer bg-blue-50" id="pay-card">
+                                    <input type="radio" name="payment" value="card" checked>
+                                    <div>
+                                        <span class="font-bold text-sm">Bank kartı</span>
+                                        <p class="text-xs text-gray-500 mt-0.5">Visa / Mastercard</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-gray-300 transition-colors" id="pay-cash">
+                                    <input type="radio" name="payment" value="cash">
+                                    <div>
+                                        <span class="font-bold text-sm">Nağd</span>
+                                        <p class="text-xs text-gray-500 mt-0.5">Çatdırılmada ödə</p>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-gray-300 transition-colors" id="pay-installment">
+                                    <input type="radio" name="payment" value="installment">
+                                    <div>
+                                        <span class="font-bold text-sm">Taksit</span>
+                                        <p class="text-xs text-gray-500 mt-0.5">3-12 ay</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-colors text-sm lg:hidden">Sifarişi təsdiqlə — 174 800 ₼</button>
+                    </form>
+                </div>
+
+                <!-- Right: Order Summary -->
+                <div class="lg:w-[380px] flex-shrink-0">
+                    <div class="border border-gray-200 rounded-2xl p-6 sticky top-40">
+                        <h2 class="font-bold text-lg mb-4">Sifarişiniz</h2>
+
+                        <!-- Mini Cart Items -->
+                        <div class="space-y-3 mb-4 max-h-[300px] overflow-y-auto">
+                            <div class="flex gap-3">
+                                <div class="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=100&q=80" alt="Sırğalar" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium truncate">Qızıldan sırğalar</p>
+                                    <p class="text-xs text-gray-500">1 ədəd</p>
+                                    <p class="text-sm font-bold">72 500 ₼</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=100&q=80" alt="Üzük" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium truncate">Ağ qızıldan brilyantlı üzük</p>
+                                    <p class="text-xs text-gray-500">1 ədəd</p>
+                                    <p class="text-sm font-bold">43 400 ₼</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?auto=format&fit=crop&w=100&q=80" alt="Boyunbağı" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium truncate">Qızıldan boyunbağı</p>
+                                    <p class="text-xs text-gray-500">1 ədəd</p>
+                                    <p class="text-sm font-bold">58 900 ₼</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-200 pt-4 space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Məhsullar (3)</span>
+                                <span class="font-medium">174 800 ₼</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Endirim</span>
+                                <span class="font-medium text-red-500">-465 170 ₼</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Çatdırılma</span>
+                                <span class="font-medium text-green-600">Pulsuz</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-200 mt-3 pt-3">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg">Cəmi</span>
+                                <span class="font-bold text-xl">174 800 ₼</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl mt-5 transition-colors text-sm hidden lg:block" id="submit-order-btn">Sifarişi təsdiqlə</button>
+
+                        <div class="flex items-center gap-2 mt-4 justify-center">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-xs text-gray-400">Təhlükəsiz ödəniş</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success State -->
+            <div class="hidden text-center py-20" id="order-success">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="check" class="w-10 h-10 text-green-600"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Sifarişiniz qəbul edildi!</h2>
+                <p class="text-gray-500 mb-2">Sifariş nömrəsi: <span class="font-bold text-gray-900">#SOK-2026-4857</span></p>
+                <p class="text-sm text-gray-500 mb-8">Sifariş detalları e-poçt ünvanınıza göndərildi</p>
+                <div class="flex items-center justify-center gap-4">
+                    <a href="sokolov.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors text-sm">Alış-verişə davam et</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-12">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Brend haqqında</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Xəbərlər</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Vakansiyalar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Geri qaytarma</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Bonus proqramı</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Ölçü cədvəli</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>8 (800) 100-00-00</li>
+                    <li>support@sokolov.ru</li>
+                    <li class="flex gap-4 mt-4">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">IG</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">FB</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">YT</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 border-t border-gray-300 pt-8 text-xs text-gray-400 text-center">
+            2026 SOKOLOV. Bütün hüquqlar qorunur.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Delivery method toggle
+        const deliveryCourier = document.getElementById('delivery-courier');
+        const deliveryPickup = document.getElementById('delivery-pickup');
+        const addressSection = document.getElementById('address-section');
+        const pickupSection = document.getElementById('pickup-section');
+
+        function setDeliveryStyle(selected, other) {
+            selected.classList.add('border-blue-600', 'bg-blue-50');
+            selected.classList.remove('border-gray-200');
+            other.classList.remove('border-blue-600', 'bg-blue-50');
+            other.classList.add('border-gray-200');
+        }
+
+        deliveryCourier.addEventListener('change', () => {
+            setDeliveryStyle(deliveryCourier, deliveryPickup);
+            addressSection.classList.remove('hidden');
+            pickupSection.classList.add('hidden');
+            lucide.createIcons();
+        });
+
+        deliveryPickup.addEventListener('change', () => {
+            setDeliveryStyle(deliveryPickup, deliveryCourier);
+            addressSection.classList.add('hidden');
+            pickupSection.classList.remove('hidden');
+            lucide.createIcons();
+        });
+
+        // Store selection toggle
+        const storeLabels = document.querySelectorAll('#pickup-section label');
+        storeLabels.forEach(label => {
+            label.querySelector('input').addEventListener('change', () => {
+                storeLabels.forEach(l => {
+                    l.classList.remove('border-blue-600', 'bg-blue-50');
+                    l.classList.add('border-gray-200');
+                });
+                label.classList.add('border-blue-600', 'bg-blue-50');
+                label.classList.remove('border-gray-200');
+            });
+        });
+
+        // Payment method toggle
+        const payLabels = [document.getElementById('pay-card'), document.getElementById('pay-cash'), document.getElementById('pay-installment')];
+        payLabels.forEach(label => {
+            label.querySelector('input').addEventListener('change', () => {
+                payLabels.forEach(l => {
+                    l.classList.remove('border-blue-600', 'bg-blue-50');
+                    l.classList.add('border-gray-200');
+                });
+                label.classList.add('border-blue-600', 'bg-blue-50');
+                label.classList.remove('border-gray-200');
+            });
+        });
+
+        // Submit order
+        function submitOrder(e) {
+            if (e) e.preventDefault();
+            document.getElementById('checkout-form-section').classList.add('hidden');
+            document.getElementById('order-success').classList.remove('hidden');
+
+            // Update step indicators
+            const step2 = document.getElementById('step-2');
+            const step3 = document.getElementById('step-3');
+            step2.classList.remove('text-blue-600', 'font-bold');
+            step2.classList.add('text-gray-400');
+            step2.querySelector('span:first-child').classList.remove('bg-blue-600', 'text-white');
+            step2.querySelector('span:first-child').classList.add('border-2', 'border-gray-300');
+            step3.classList.remove('text-gray-400');
+            step3.classList.add('text-green-600', 'font-bold');
+            step3.querySelector('span:first-child').classList.remove('border-2', 'border-gray-300');
+            step3.querySelector('span:first-child').classList.add('bg-green-600', 'text-white');
+
+            lucide.createIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('checkout-form').addEventListener('submit', submitOrder);
+        document.getElementById('submit-order-btn').addEventListener('click', () => {
+            const form = document.getElementById('checkout-form');
+            if (form.checkValidity()) {
+                submitOrder();
+            } else {
+                form.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>

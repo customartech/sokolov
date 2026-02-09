@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKOLOV - Səbət</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+    <!-- 1. Top Notification Bar (Pink) -->
+    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+        <div class="flex-1 text-center">
+            <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
+            HƏR ŞEYƏ *Ətraflı
+        </div>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+    </div>
+
+    <!-- 2. Main Header Container -->
+    <header class="sticky top-0 z-50 bg-white">
+        <div class="container mx-auto">
+            
+            <!-- Upper Row -->
+            <div class="flex items-center py-4">
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700 flex-1">
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Bakı</span>
+                    </div>
+                    <a href="#" class="hover:text-black">Mağazalar</a>
+                    <a href="#" class="hover:text-black">Çatdırılma və ödəniş</a>
+                </div>
+
+                <button class="lg:hidden" id="menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+
+                <a href="sokolov.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                    <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
+                </a>
+
+                <div class="flex items-center gap-6 flex-1 justify-end">
+                    <div class="hidden xl:flex flex-col items-end mr-4">
+                        <span class="font-bold text-sm">8 800 1000 750</span>
+                        <span class="text-xs text-gray-500">Sifariş üçün</span>
+                    </div>
+                    <div class="hidden xl:flex items-center gap-1 cursor-pointer relative" id="lang-selector">
+                        <span class="text-sm font-medium" id="lang-current">AZ</span>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        <div class="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg hidden z-50" id="lang-dropdown">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="AZ">AZ</a>
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="RU">RU</a>
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="EN">EN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lower Row -->
+            <div class="hidden lg:flex items-center justify-between py-4">
+                <a href="sokolov.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    KATALOQ
+                </a>
+
+                <div class="w-1/2 relative">
+                    <input type="text" placeholder="Kataloq üzrə axtarış" class="w-full border border-gray-300 rounded px-4 py-3 pl-10 focus:outline-none focus:border-black transition-colors placeholder-gray-500 header-40px">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                </div>
+
+                <div class="flex items-center gap-8 text-gray-600">
+                    <a href="#" class="relative cursor-pointer">
+                        <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
+                    </a>
+                    <a href="cart.html" class="relative cursor-pointer">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors text-black"></i>
+                    </a>
+                    <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <a href="login.html" class="hidden md:block">
+                        <i data-lucide="log-in" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <main class="py-10">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold mb-8">Səbət <span class="text-gray-400 font-normal text-lg" id="cart-count-title">(3 məhsul)</span></h1>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Cart Items -->
+                <div class="flex-1 space-y-4" id="cart-items">
+
+                    <!-- Cart Item 1 -->
+                    <div class="flex gap-4 border border-gray-200 rounded-2xl p-4 relative" data-cart-item data-price="72500">
+                        <div class="w-28 h-28 flex-shrink-0 rounded-xl overflow-hidden bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=200&q=80" alt="Sırğalar" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-sm">Qızıldan sırğalar</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Art: 123456789</p>
+                                    <p class="text-xs text-gray-500">Ölçü: standart</p>
+                                </div>
+                                <button class="text-gray-400 hover:text-red-500 transition-colors" data-remove-item>
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center border border-gray-300 rounded-lg">
+                                    <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 transition-colors" data-qty-minus>
+                                        <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                    <span class="px-3 py-1.5 text-sm font-bold min-w-[32px] text-center" data-qty-value>1</span>
+                                    <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 transition-colors" data-qty-plus>
+                                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="font-bold text-base">72 500 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through ml-2">249 990 ₼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 2 -->
+                    <div class="flex gap-4 border border-gray-200 rounded-2xl p-4 relative" data-cart-item data-price="43400">
+                        <div class="w-28 h-28 flex-shrink-0 rounded-xl overflow-hidden bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80" alt="Üzük" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-sm">Ağ qızıldan brilyantlı üzük</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Art: 987654321</p>
+                                    <p class="text-xs text-gray-500">Ölçü: 17</p>
+                                </div>
+                                <button class="text-gray-400 hover:text-red-500 transition-colors" data-remove-item>
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center border border-gray-300 rounded-lg">
+                                    <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 transition-colors" data-qty-minus>
+                                        <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                    <span class="px-3 py-1.5 text-sm font-bold min-w-[32px] text-center" data-qty-value>1</span>
+                                    <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 transition-colors" data-qty-plus>
+                                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="font-bold text-base">43 400 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through ml-2">199 990 ₼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 3 -->
+                    <div class="flex gap-4 border border-gray-200 rounded-2xl p-4 relative" data-cart-item data-price="58900">
+                        <div class="w-28 h-28 flex-shrink-0 rounded-xl overflow-hidden bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?auto=format&fit=crop&w=200&q=80" alt="Boyunbağı" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-sm">Qızıldan boyunbağı</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Art: 456789123</p>
+                                    <p class="text-xs text-gray-500">Ölçü: 45 sm</p>
+                                </div>
+                                <button class="text-gray-400 hover:text-red-500 transition-colors" data-remove-item>
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center border border-gray-300 rounded-lg">
+                                    <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 transition-colors" data-qty-minus>
+                                        <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                    <span class="px-3 py-1.5 text-sm font-bold min-w-[32px] text-center" data-qty-value>1</span>
+                                    <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 transition-colors" data-qty-plus>
+                                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="font-bold text-base">58 900 ₼</span>
+                                    <span class="text-xs text-gray-400 line-through ml-2">189 990 ₼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:w-[380px] flex-shrink-0">
+                    <div class="border border-gray-200 rounded-2xl p-6 sticky top-40">
+                        <h2 class="font-bold text-lg mb-6">Sifariş məlumatları</h2>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Məhsullar (<span id="summary-count">3</span>)</span>
+                                <span class="font-medium" id="summary-subtotal">174 800 ₼</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Endirim</span>
+                                <span class="font-medium text-red-500" id="summary-discount">-465 170 ₼</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Çatdırılma</span>
+                                <span class="font-medium text-green-600">Pulsuz</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-200 mt-4 pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg">Cəmi</span>
+                                <span class="font-bold text-xl" id="summary-total">174 800 ₼</span>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="mt-6">
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="Promo kod" class="flex-1 border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500 transition-colors" id="promo-input">
+                                <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2.5 rounded-lg text-sm font-bold transition-colors" id="promo-btn">Tətbiq et</button>
+                            </div>
+                            <p id="promo-message" class="text-xs mt-2 hidden"></p>
+                        </div>
+
+                        <a href="checkout.html" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl mt-6 transition-colors text-sm block text-center" id="checkout-btn">Sifarişi rəsmiləşdir</a>
+
+                        <div class="flex items-center gap-2 mt-4 justify-center">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-xs text-gray-400">Təhlükəsiz ödəniş</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty Cart State -->
+            <div class="hidden text-center py-20" id="empty-cart">
+                <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="shopping-bag" class="w-10 h-10 text-gray-400"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Səbətiniz boşdur</h2>
+                <p class="text-sm text-gray-500 mb-6">Kataloqdan bəyəndiyiniz məhsulları əlavə edin</p>
+                <a href="sokolov.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">Kataloqa keç</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-12">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Brend haqqında</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Xəbərlər</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Vakansiyalar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Geri qaytarma</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Bonus proqramı</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Ölçü cədvəli</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>8 (800) 100-00-00</li>
+                    <li>support@sokolov.ru</li>
+                    <li class="flex gap-4 mt-4">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">IG</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">FB</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">YT</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 border-t border-gray-300 pt-8 text-xs text-gray-400 text-center">
+            2026 SOKOLOV. Bütün hüquqlar qorunur.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₼';
+        }
+
+        function updateSummary() {
+            const items = document.querySelectorAll('[data-cart-item]');
+            let totalItems = 0;
+            let totalPrice = 0;
+
+            items.forEach(item => {
+                const qty = parseInt(item.querySelector('[data-qty-value]').textContent);
+                const price = parseInt(item.getAttribute('data-price'));
+                totalItems += qty;
+                totalPrice += price * qty;
+            });
+
+            document.getElementById('summary-count').textContent = totalItems;
+            document.getElementById('summary-subtotal').textContent = formatPrice(totalPrice);
+            document.getElementById('summary-total').textContent = formatPrice(totalPrice);
+            document.getElementById('cart-count-title').textContent = '(' + totalItems + ' məhsul)';
+
+            // Show empty cart if no items
+            if (items.length === 0) {
+                document.getElementById('cart-items').parentElement.classList.add('hidden');
+                document.getElementById('empty-cart').classList.remove('hidden');
+            }
+        }
+
+        // Quantity controls
+        document.querySelectorAll('[data-cart-item]').forEach(item => {
+            const minusBtn = item.querySelector('[data-qty-minus]');
+            const plusBtn = item.querySelector('[data-qty-plus]');
+            const qtyEl = item.querySelector('[data-qty-value]');
+
+            minusBtn.addEventListener('click', () => {
+                let qty = parseInt(qtyEl.textContent);
+                if (qty > 1) {
+                    qtyEl.textContent = qty - 1;
+                    updateSummary();
+                }
+            });
+
+            plusBtn.addEventListener('click', () => {
+                let qty = parseInt(qtyEl.textContent);
+                qtyEl.textContent = qty + 1;
+                updateSummary();
+            });
+        });
+
+        // Remove item
+        document.querySelectorAll('[data-remove-item]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('[data-cart-item]');
+                item.style.transition = 'opacity 0.3s, transform 0.3s';
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(20px)';
+                setTimeout(() => {
+                    item.remove();
+                    updateSummary();
+                    lucide.createIcons();
+                }, 300);
+            });
+        });
+
+        // Promo code
+        document.getElementById('promo-btn').addEventListener('click', () => {
+            const input = document.getElementById('promo-input');
+            const msg = document.getElementById('promo-message');
+            if (input.value.trim()) {
+                msg.textContent = 'Promo kod tətbiq edildi!';
+                msg.classList.remove('hidden', 'text-red-500');
+                msg.classList.add('text-green-600');
+            } else {
+                msg.textContent = 'Promo kodu daxil edin';
+                msg.classList.remove('hidden', 'text-green-600');
+                msg.classList.add('text-red-500');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -31,7 +31,7 @@
             <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
             HƏR ŞEYƏ *Ətraflı
         </div>
-        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-white"></i>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
     </div>
 
     <!-- 2. Main Header Container -->
@@ -98,12 +98,12 @@
                         <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
                         <span id="fav-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
                     </div>
-                    <div class="relative cursor-pointer" id="header-cart">
+                    <a href="cart.html" class="relative cursor-pointer" id="header-cart">
                         <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
                         <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                    </div>
+                    </a>
                     <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
-                    <i data-lucide="log-in" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <a href="login.html" class="hidden md:block"><i data-lucide="log-in" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i></a>
                 </div>
             </div>
 
@@ -1185,53 +1185,40 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12">
-        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer class="bg-gray-100 text-gray-600 py-12">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white">Brend haqqında</a></li>
-                    <li><a href="#" class="hover:text-white">Mağazalar</a></li>
-                    <li><a href="#" class="hover:text-white">Xəbərlər</a></li>
-                    <li><a href="#" class="hover:text-white">Vakansiyalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Brend haqqında</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Xəbərlər</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Vakansiyalar</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white">Çatdırılma və ödəniş</a></li>
-                    <li><a href="#" class="hover:text-white">Geri qaytarma</a></li>
-                    <li><a href="#" class="hover:text-white">Bonus proqramı</a></li>
-                    <li><a href="#" class="hover:text-white">Ölçü cədvəli</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Geri qaytarma</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Bonus proqramı</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Ölçü cədvəli</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
                 <ul class="space-y-2 text-sm">
                     <li>8 (800) 100-00-00</li>
                     <li>support@sokolov.ru</li>
                     <li class="flex gap-4 mt-4">
-                        <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 cursor-pointer">IG</div>
-                        <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 cursor-pointer">FB</div>
-                        <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 cursor-pointer">YT</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">IG</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">FB</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">YT</div>
                     </li>
                 </ul>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Tətbiqi Yüklə</h4>
-                <div class="flex flex-col gap-2">
-                    <button class="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-left hover:bg-gray-700 transition-colors">
-                        <span class="text-xs block text-gray-400">Yüklə</span>
-                        <span class="font-bold text-white">App Store</span>
-                    </button>
-                    <button class="bg-gray-800 border border-gray-700 rounded px-4 py-2 text-left hover:bg-gray-700 transition-colors">
-                        <span class="text-xs block text-gray-400">Yüklə</span>
-                        <span class="font-bold text-white">Google Play</span>
-                    </button>
-                </div>
-            </div>
         </div>
-        <div class="container mx-auto mt-12 border-t border-gray-800 pt-8 text-xs text-gray-500 text-center">
+        <div class="container mx-auto mt-12 border-t border-gray-300 pt-8 text-xs text-gray-400 text-center">
             2026 SOKOLOV. Bütün hüquqlar qorunur.
         </div>
     </footer>

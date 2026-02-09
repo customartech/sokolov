@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKOLOV - Daxil ol</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+    <!-- 1. Top Notification Bar (Pink) -->
+    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+        <div class="flex-1 text-center">
+            <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
+            HƏR ŞEYƏ *Ətraflı
+        </div>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+    </div>
+
+    <!-- 2. Main Header Container -->
+    <header class="sticky top-0 z-50 bg-white">
+        <div class="container mx-auto">
+            
+            <!-- Upper Row -->
+            <div class="flex items-center py-4">
+                <!-- Left: Location & Links -->
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700 flex-1">
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Bakı</span>
+                    </div>
+                    <a href="#" class="hover:text-black">Mağazalar</a>
+                    <a href="#" class="hover:text-black">Çatdırılma və ödəniş</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden" id="menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Center: Logo -->
+                <a href="sokolov.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                    <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
+                </a>
+
+                <!-- Right: Phone & Icons -->
+                <div class="flex items-center gap-6 flex-1 justify-end">
+                    <div class="hidden xl:flex flex-col items-end mr-4">
+                        <span class="font-bold text-sm">8 800 1000 750</span>
+                        <span class="text-xs text-gray-500">Sifariş üçün</span>
+                    </div>
+                    <div class="hidden xl:flex items-center gap-1 cursor-pointer relative" id="lang-selector">
+                        <span class="text-sm font-medium" id="lang-current">AZ</span>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        <div class="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg hidden z-50" id="lang-dropdown">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="AZ">AZ</a>
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="RU">RU</a>
+                                <a href="#" class="block px-4 py-1.5 text-sm hover:bg-gray-100 font-medium" data-lang="EN">EN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lower Row -->
+            <div class="hidden lg:flex items-center justify-between py-4">
+                <a href="sokolov.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    KATALOQ
+                </a>
+
+                <div class="w-1/2 relative">
+                    <input type="text" placeholder="Kataloq üzrə axtarış" class="w-full border border-gray-300 rounded px-4 py-3 pl-10 focus:outline-none focus:border-black transition-colors placeholder-gray-500 header-40px">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                </div>
+
+                <div class="flex items-center gap-8 text-gray-600">
+                    <a href="#" class="relative cursor-pointer">
+                        <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
+                    </a>
+                    <a href="#" class="relative cursor-pointer">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
+                    </a>
+                    <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <a href="login.html" class="hidden md:block">
+                        <i data-lucide="log-in" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <main class="min-h-[70vh] flex items-center justify-center py-16">
+        <div class="w-full max-w-md mx-auto px-4">
+            <!-- Login Card -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+                <h1 class="text-2xl font-bold text-center mb-2">Daxil ol</h1>
+                <p class="text-sm text-gray-500 text-center mb-8">Hesabınıza daxil olun və ya yeni hesab yaradın</p>
+
+                <!-- Tabs -->
+                <div class="flex border-b border-gray-200 mb-6">
+                    <button class="flex-1 py-3 text-sm font-bold text-blue-600 border-b-2 border-blue-600" id="tab-login">Daxil ol</button>
+                    <button class="flex-1 py-3 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent" id="tab-register">Qeydiyyat</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="form-login" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">E-poçt və ya telefon</label>
+                        <div class="relative">
+                            <input type="text" placeholder="E-poçt və ya telefon nömrəsi" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Şifrə</label>
+                        <div class="relative">
+                            <input type="password" placeholder="Şifrənizi daxil edin" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 pr-10 text-sm focus:outline-none focus:border-blue-500 transition-colors" id="login-password">
+                            <i data-lucide="lock" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                            <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600" id="toggle-password">
+                                <i data-lucide="eye" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <span class="text-sm text-gray-600">Yadda saxla</span>
+                        </label>
+                        <a href="forgot-password.html" class="text-sm text-blue-600 hover:text-blue-700 font-medium">Şifrəni unutdum</a>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-colors">Daxil ol</button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="form-register" class="space-y-4 hidden">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Ad və Soyad</label>
+                        <div class="relative">
+                            <input type="text" placeholder="Ad və soyadınız" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <i data-lucide="user" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">E-poçt</label>
+                        <div class="relative">
+                            <input type="email" placeholder="E-poçt ünvanınız" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                        <div class="relative">
+                            <input type="tel" placeholder="+994 XX XXX XX XX" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <i data-lucide="phone" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Şifrə</label>
+                        <div class="relative">
+                            <input type="password" placeholder="Şifrə yaradın (min. 8 simvol)" class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <i data-lucide="lock" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-0.5" id="terms-checkbox">
+                            <span class="text-sm text-gray-600"><a href="#" class="text-blue-600 hover:text-blue-700">İstifadə şərtləri</a> və <a href="#" class="text-blue-600 hover:text-blue-700">Məxfilik siyasəti</a> ilə razıyam</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-300 text-white font-bold py-3 rounded-lg transition-colors cursor-not-allowed" id="register-btn" disabled>Qeydiyyatdan keç</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-12">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Brend haqqında</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Xəbərlər</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Vakansiyalar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Geri qaytarma</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Bonus proqramı</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Ölçü cədvəli</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>8 (800) 100-00-00</li>
+                    <li>support@sokolov.ru</li>
+                    <li class="flex gap-4 mt-4">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">IG</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">FB</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">YT</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 border-t border-gray-300 pt-8 text-xs text-gray-400 text-center">
+            2026 SOKOLOV. Bütün hüquqlar qorunur.
+        </div>
+    </footer>
+
+    <!-- Lucide Icons Init -->
+    <script>
+        lucide.createIcons();
+
+        // Tab switching
+        const tabLogin = document.getElementById('tab-login');
+        const tabRegister = document.getElementById('tab-register');
+        const formLogin = document.getElementById('form-login');
+        const formRegister = document.getElementById('form-register');
+
+        tabLogin.addEventListener('click', () => {
+            tabLogin.classList.add('text-blue-600', 'border-blue-600', 'font-bold');
+            tabLogin.classList.remove('text-gray-500', 'border-transparent', 'font-medium');
+            tabRegister.classList.remove('text-blue-600', 'border-blue-600', 'font-bold');
+            tabRegister.classList.add('text-gray-500', 'border-transparent', 'font-medium');
+            formLogin.classList.remove('hidden');
+            formRegister.classList.add('hidden');
+        });
+
+        tabRegister.addEventListener('click', () => {
+            tabRegister.classList.add('text-blue-600', 'border-blue-600', 'font-bold');
+            tabRegister.classList.remove('text-gray-500', 'border-transparent', 'font-medium');
+            tabLogin.classList.remove('text-blue-600', 'border-blue-600', 'font-bold');
+            tabLogin.classList.add('text-gray-500', 'border-transparent', 'font-medium');
+            formRegister.classList.remove('hidden');
+            formLogin.classList.add('hidden');
+        });
+
+        // Terms checkbox -> register button toggle
+        const termsCheckbox = document.getElementById('terms-checkbox');
+        const registerBtn = document.getElementById('register-btn');
+        if (termsCheckbox && registerBtn) {
+            termsCheckbox.addEventListener('change', () => {
+                if (termsCheckbox.checked) {
+                    registerBtn.disabled = false;
+                    registerBtn.classList.remove('bg-blue-300', 'cursor-not-allowed');
+                    registerBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'cursor-pointer');
+                } else {
+                    registerBtn.disabled = true;
+                    registerBtn.classList.add('bg-blue-300', 'cursor-not-allowed');
+                    registerBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'cursor-pointer');
+                }
+            });
+        }
+
+        // Toggle password visibility
+        const toggleBtn = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('login-password');
+        if (toggleBtn && passwordInput) {
+            toggleBtn.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+            });
+        }
+    </script>
+</body>
+</html>
