@@ -68,11 +68,13 @@
                     <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
                 </div>
                 <div class="flex items-center gap-8 text-gray-600">
-                    <a href="#" class="relative cursor-pointer">
+                    <div class="relative cursor-pointer" id="header-fav">
                         <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
-                    </a>
-                    <a href="cart.html" class="relative cursor-pointer">
+                        <span id="fav-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
+                    </div>
+                    <a href="cart.html" class="relative cursor-pointer" id="header-cart">
                         <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
                     </a>
                     <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
                     <a href="login.html" class="hidden md:block">
@@ -787,25 +789,81 @@
             });
         });
 
-        // Favorite toggle
-        document.querySelectorAll('[data-product-card] button').forEach(btn => {
-            const svg = btn.querySelector('svg');
-            if (!svg || !svg.getAttribute('data-lucide')?.includes('heart')) return;
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isFav = svg.getAttribute('fill') === 'red';
-                if (isFav) {
-                    svg.setAttribute('fill', 'none');
-                    svg.setAttribute('stroke', 'currentColor');
-                    svg.classList.remove('text-red-500');
-                    svg.classList.add('text-gray-400');
-                } else {
-                    svg.setAttribute('fill', 'red');
-                    svg.setAttribute('stroke', 'red');
-                    svg.classList.add('text-red-500');
-                    svg.classList.remove('text-gray-400');
-                }
-            });
+        // Favorite Toggle with badge
+        let favCount = 0;
+        const favBadge = document.getElementById('fav-badge');
+
+        document.querySelectorAll('[data-product-card]').forEach(card => {
+            const heartBtn = card.querySelector('button:first-of-type');
+            if (heartBtn) {
+                heartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const svg = heartBtn.querySelector('svg');
+                    if (!svg) return;
+                    const isFav = svg.getAttribute('fill') === 'red';
+
+                    if (isFav) {
+                        svg.setAttribute('fill', 'none');
+                        svg.setAttribute('stroke', 'currentColor');
+                        svg.classList.remove('text-red-500');
+                        svg.classList.add('text-gray-400');
+                        favCount--;
+                    } else {
+                        svg.setAttribute('fill', 'red');
+                        svg.setAttribute('stroke', 'red');
+                        svg.classList.add('text-red-500');
+                        svg.classList.remove('text-gray-400');
+                        favCount++;
+                    }
+
+                    if (favCount > 0) {
+                        favBadge.textContent = favCount;
+                        favBadge.classList.remove('hidden');
+                        favBadge.classList.add('flex');
+                    } else {
+                        favBadge.classList.add('hidden');
+                        favBadge.classList.remove('flex');
+                    }
+                });
+            }
+        });
+
+        // Cart (Səbətə at) Toggle with badge
+        let cartCount = 0;
+        const cartBadge = document.getElementById('cart-badge');
+
+        document.querySelectorAll('[data-product-card]').forEach(card => {
+            const allBtns = card.querySelectorAll('button');
+            const cartBtn = Array.from(allBtns).find(b => b.textContent.trim() === 'Səbətə at');
+            if (cartBtn) {
+                cartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const isInCart = cartBtn.classList.contains('bg-green-500');
+
+                    if (isInCart) {
+                        cartBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        cartBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                        cartBtn.textContent = 'Səbətə at';
+                        cartCount--;
+                    } else {
+                        cartBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                        cartBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        cartBtn.textContent = 'Səbətdədir ✓';
+                        cartCount++;
+                    }
+
+                    if (cartCount > 0) {
+                        cartBadge.textContent = cartCount;
+                        cartBadge.classList.remove('hidden');
+                        cartBadge.classList.add('flex');
+                    } else {
+                        cartBadge.classList.add('hidden');
+                        cartBadge.classList.remove('flex');
+                    }
+                });
+            }
         });
     </script>
 </body>
