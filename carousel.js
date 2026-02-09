@@ -302,6 +302,76 @@ document.addEventListener('DOMContentLoaded', function() {
         updateYenilikler();
     }
 
+    // Populyar Mehsullar Section Carousel
+    const populyarTrack = document.getElementById('populyar-track');
+    const populyarNext = document.getElementById('populyar-next');
+    const populyarPrev = document.getElementById('populyar-prev');
+
+    if (populyarTrack && populyarNext && populyarPrev) {
+        let populyarPage = 0;
+        const populyarCardsPerPage = window.innerWidth >= 768 ? 4 : 2;
+        const populyarTotalCards = populyarTrack.children.length;
+        const populyarTotalPages = Math.ceil(populyarTotalCards / populyarCardsPerPage) - 1;
+
+        function updatePopulyar() {
+            const slidePercent = (populyarPage * populyarCardsPerPage / populyarTotalCards) * 100;
+            populyarTrack.style.transform = `translateX(-${slidePercent}%)`;
+            populyarPrev.classList.toggle('hidden', populyarPage === 0);
+            populyarNext.classList.toggle('hidden', populyarPage >= populyarTotalPages);
+        }
+
+        populyarNext.addEventListener('click', () => {
+            if (populyarPage < populyarTotalPages) {
+                populyarPage++;
+                updatePopulyar();
+            }
+        });
+
+        populyarPrev.addEventListener('click', () => {
+            if (populyarPage > 0) {
+                populyarPage--;
+                updatePopulyar();
+            }
+        });
+
+        updatePopulyar();
+    }
+
+    // Kolleksiyalar Section Carousel (5 cards on desktop, 2 on mobile)
+    const kolleksiyaTrack = document.getElementById('kolleksiya-track');
+    const kolleksiyaNext = document.getElementById('kolleksiya-next');
+    const kolleksiyaPrev = document.getElementById('kolleksiya-prev');
+
+    if (kolleksiyaTrack && kolleksiyaNext && kolleksiyaPrev) {
+        let kolleksiyaPage = 0;
+        const kolleksiyaCardsPerPage = window.innerWidth >= 768 ? 5 : 2;
+        const kolleksiyaTotalCards = kolleksiyaTrack.children.length;
+        const kolleksiyaTotalPages = Math.ceil(kolleksiyaTotalCards / kolleksiyaCardsPerPage) - 1;
+
+        function updateKolleksiya() {
+            const slidePercent = (kolleksiyaPage * kolleksiyaCardsPerPage / kolleksiyaTotalCards) * 100;
+            kolleksiyaTrack.style.transform = `translateX(-${slidePercent}%)`;
+            kolleksiyaPrev.classList.toggle('hidden', kolleksiyaPage === 0);
+            kolleksiyaNext.classList.toggle('hidden', kolleksiyaPage >= kolleksiyaTotalPages);
+        }
+
+        kolleksiyaNext.addEventListener('click', () => {
+            if (kolleksiyaPage < kolleksiyaTotalPages) {
+                kolleksiyaPage++;
+                updateKolleksiya();
+            }
+        });
+
+        kolleksiyaPrev.addEventListener('click', () => {
+            if (kolleksiyaPage > 0) {
+                kolleksiyaPage--;
+                updateKolleksiya();
+            }
+        });
+
+        updateKolleksiya();
+    }
+
     // Language Selector
     const langSelector = document.getElementById('lang-selector');
     const langDropdown = document.getElementById('lang-dropdown');
