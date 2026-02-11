@@ -36,7 +36,7 @@
     <link rel="canonical" href="https://sokolov.az/">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -51,10 +51,10 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <!-- Carousel JS -->
-    <script src="carousel.js"></script>
+    <script src="js/carousel.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -181,7 +181,7 @@
     </div>
 
     <!-- 2. Main Header Container -->
-    <header class="sticky top-0 z-50 bg-white">
+    <header class="sticky top-0 z-50 bg-white relative">
         <div class="container mx-auto">
             
             <!-- Upper Row -->
@@ -228,7 +228,7 @@
 
             <!-- Lower Row -->
             <div class="hidden lg:flex items-center justify-between py-4">
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px" id="kataloq-btn">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px" id="kataloq-btn" onclick="var m=document.getElementById('kataloq-menu'),i1=document.getElementById('kataloq-icon-menu'),i2=document.getElementById('kataloq-icon-close');if(m.classList.contains('hidden')){m.classList.remove('hidden');m.style.display='block';i1.classList.add('hidden');i2.classList.remove('hidden');}else{m.classList.add('hidden');m.style.display='none';i1.classList.remove('hidden');i2.classList.add('hidden');}return false;">
                     <i data-lucide="menu" class="w-5 h-5" id="kataloq-icon-menu"></i>
                     <i data-lucide="x" class="w-5 h-5 hidden" id="kataloq-icon-close"></i>
                     KATALOQ
@@ -261,10 +261,11 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <!-- Kataloq Mega Menu -->
-        <div class="hidden absolute left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50" id="kataloq-menu" style="top: 100%; height: 100vh;">
-            <div class="container mx-auto flex py-8">
+    <!-- Kataloq Mega Menu (Moved outside header for proper positioning) -->
+    <div class="hidden fixed left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-[60]" id="kataloq-menu" style="top: 160px; max-height: calc(100vh - 160px); overflow-y: auto;">
+        <div class="container mx-auto flex py-8">
                 <!-- Left Sidebar -->
                 <div class="w-[220px] flex-shrink-0 border-r border-gray-200 pr-6">
                     <ul class="space-y-1" id="kataloq-sidebar">
@@ -287,247 +288,247 @@
                 <div class="flex-1 pl-8" id="kataloq-content">
                     <!-- Zinət əşyaları -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel" data-panel="zinet">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Bütün zinət əşyaları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Bütün zinət əşyaları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Üzüklər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Üzüklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Sırğalar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sırğalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Zəncirlər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zəncirlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Kulon və asılqanlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kulon və asılqanlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Bilərziklər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Bilərziklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Broşlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Broşlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Şarmlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Şarmlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Kolye</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kolye" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Pirsinq</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Pirsinq" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Zaponkalar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zaponkalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Sıxaclar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sıxaclar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Material -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="material">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Qızıl</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qızıl" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Gümüş</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Gümüş" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Platinium</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Platinium" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Almaz</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Almaz" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Fianit</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Fianit" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">İnci</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="İnci" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Saatlar -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="saatlar">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Qadın saatları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qadın saatları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Kişi saatları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kişi saatları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Uşaq saatları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Uşaq saatları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Saat kəmərləri</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Saat kəmərləri" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Çantalar -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="cantalar">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Çantalar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Çantalar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Pul kisələri</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Pul kisələri" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Kəmərlər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Kəmərlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Eynəklər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Eynəklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Şarflar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Şarflar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Kosmetika -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="kosmetika">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Dodaq boyası</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Dodaq boyası" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Dırnaq lakı</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Dırnaq lakı" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Ətir</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Ətir" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Təmizləyici vasitələr -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="temizleyici">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Zinət təmizləyicisi</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zinət təmizləyicisi" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Parçalama dəsmalı</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Parçalama dəsmalı" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Qablar -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="qablar">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Gümüş qablar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Gümüş qablar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Çay dəsti</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Çay dəsti" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Qaşıqlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qaşıqlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Saxlama və qulluq -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="saxlama">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Zinət qutuları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Zinət qutuları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Qulluq dəstləri</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qulluq dəstləri" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Hədiyyə kartı -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="hediyye">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Hədiyyə kartları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Hədiyyə kartları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Hədiyyə dəstləri</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Hədiyyə dəstləri" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Hədiyyə qutuları</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Hədiyyə qutuları" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Kolleksiyalar -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="kolleksiyalar">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Yeni kolleksiya</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Yeni kolleksiya" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Klassik</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Klassik" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Trend</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Trend" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Limitli seriya</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Limitli seriya" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Sifarişlə zinət -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="sifarisle">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Fərdi sifariş</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Fərdi sifariş" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Qravüra</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Qravüra" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Seçmələr -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="secmeler">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Ən çox satılanlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Ən çox satılanlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Yeni gələnlər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Yeni gələnlər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Endirimli</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Endirimli" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
                     </div>
                     <!-- Merch SOKOLOV -->
                     <div class="grid grid-cols-6 gap-3 kataloq-panel hidden" data-panel="merch">
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Köynəklər</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Köynəklər" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Sviterşotlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Sviterşotlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
-                        <a href="#" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
+                        <a href="products.html" class="bg-gray-100 rounded-2xl relative h-[180px] hover:shadow-md transition-shadow flex flex-col">
                             <span class="text-sm text-gray-900 z-10 p-[10px]">Aksessuarlar</span>
                             <img src="https://cdn.sokolov.ru/upload/site-main-menu/1/COfb-UdmAzCTNGYuxb8jERaa_Piw6bIV.png" alt="Aksessuarlar" class="absolute bottom-2 right-2 w-full h-full object-contain">
                         </a>
@@ -535,7 +536,6 @@
                 </div>
             </div>
         </div>
-    </header>
 
     <!-- Main Content -->
     <main class="mx-auto overflow-hidden">
@@ -598,70 +598,70 @@
                 <div class="relative">
                     <!-- Categories Track -->
                     <div class="flex overflow-x-auto gap-4 scroll-smooth" id="categories-track">
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="heart" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Üzüklər</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="gem" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Qolbağlar</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="star" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Sırğalar</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="crown" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Boyunbağlar</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="zap" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Bilərziklər</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="gift" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Setlər</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="diamond" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Zərgərlik</h3>
                             </div>
-                        </div>
-                        <div class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                        </a>
+                        <a href="products.html" class="flex-none w-40 bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
                             <div class="flex items-center justify-center gap-3">
                                 <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                     <i data-lucide="sparkles" class="w-4 h-4 text-gray-600"></i>
                                 </div>
                                 <h3 class="text-sm font-medium">Aksessuarlar</h3>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     
                     <!-- Navigation Arrows -->
@@ -681,7 +681,7 @@
                 
                 <!-- Horizontal Banners -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    <div class="relative overflow-hidden rounded-lg cursor-pointer group">
+                    <a href="products.html" class="relative overflow-hidden rounded-lg cursor-pointer group block">
                         <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Gold Ring" class="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                             <div class="text-white">
@@ -689,9 +689,9 @@
                                 <p class="text-sm opacity-90">-30% endirim</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     
-                    <div class="relative overflow-hidden rounded-lg cursor-pointer group">
+                    <a href="products.html" class="relative overflow-hidden rounded-lg cursor-pointer group block">
                         <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Diamond Necklace" class="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                             <div class="text-white">
@@ -699,9 +699,9 @@
                                 <p class="text-sm opacity-90">-25% endirim</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     
-                    <div class="relative overflow-hidden rounded-lg cursor-pointer group">
+                    <a href="products.html" class="relative overflow-hidden rounded-lg cursor-pointer group block">
                         <img src="https://images.unsplash.com/photo-1610375461246-83648bf9f43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Gold Watch" class="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                             <div class="text-white">
@@ -709,9 +709,9 @@
                                 <p class="text-sm opacity-90">-20% endirim</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     
-                    <div class="relative overflow-hidden rounded-lg cursor-pointer group">
+                    <a href="products.html" class="relative overflow-hidden rounded-lg cursor-pointer group block">
                         <img src="https://images.unsplash.com/photo-1516136815881-7ae753b461a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Silver Earrings" class="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                             <div class="text-white">
@@ -719,7 +719,7 @@
                                 <p class="text-sm opacity-90">-15% endirim</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -736,6 +736,7 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
                                     <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
@@ -757,6 +758,7 @@
                                 <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 2 -->
@@ -764,11 +766,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Üzük" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Üzük 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Üzük 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -776,15 +779,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">43 400 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">199 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-78%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Ağ qızıldan brilyantlı üzük</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 3 -->
@@ -792,11 +796,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -804,15 +809,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">47 740 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">259 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-78%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Ağ qızıldan brilyantlı sırğalar</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 4 -->
@@ -820,11 +826,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -832,15 +839,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">26 910 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">123 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-78%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Ağ qızıldan brilyantlı sırğalar</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 5 -->
@@ -848,11 +856,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -860,15 +869,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">55 200 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">189 990 ₼</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
                                     <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Qızıldan boyunbağı</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 6 -->
@@ -876,11 +886,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Bilərzik" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Bilərzik 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Bilərzik 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -888,15 +899,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">38 700 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">159 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-76%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Gümüşdən bilərzik</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 7 -->
@@ -904,11 +916,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Üzük" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Üzük 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Üzük 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -916,15 +929,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">61 300 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">219 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-72%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Brilyantlı nişan üzüyü</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 8 -->
@@ -932,11 +946,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -944,15 +959,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">29 800 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">139 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-79%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Qızıldan zəncir boyunbağı</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
                     </div>
 
@@ -996,6 +1012,7 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
                                     <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
@@ -1017,6 +1034,7 @@
                                 <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 2 -->
@@ -1024,11 +1042,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Üzük" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Üzük 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Üzük 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1036,15 +1055,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">43 400 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">199 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-78%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Ağ qızıldan brilyantlı üzük</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 3 -->
@@ -1052,11 +1072,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1064,15 +1085,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">47 740 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">259 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-78%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Ağ qızıldan brilyantlı sırğalar</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 4 -->
@@ -1080,11 +1102,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1092,15 +1115,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">26 910 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">123 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-78%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Ağ qızıldan brilyantlı sırğalar</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 5 -->
@@ -1108,11 +1132,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Boyunbağı 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1120,15 +1145,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">55 200 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">189 990 ₼</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
                                     <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Qızıldan boyunbağı</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 6 -->
@@ -1136,11 +1162,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Bilərzik" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Bilərzik 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Bilərzik 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1148,15 +1175,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">38 700 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">159 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-76%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Gümüşdən bilərzik</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 7 -->
@@ -1164,11 +1192,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Üzük" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Üzük 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Üzük 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1176,15 +1205,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">61 300 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">219 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-72%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Brilyantlı nişan üzüyü</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
 
                         <!-- Product 8 -->
@@ -1192,11 +1222,12 @@
                             <button class="absolute top-4 right-4 z-10">
                                 <i data-lucide="heart" class="w-6 h-6 text-gray-400 hover:text-red-500 transition-colors"></i>
                             </button>
+                            <a href="product-detail.html">
                             <div class="rounded-2xl overflow-hidden mb-3 relative">
                                 <div class="flex transition-transform duration-300" data-product-images>
-                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=400&q=80" alt="Sırğalar" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 2" class="w-full h-[350px] object-cover flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Sırğalar 3" class="w-full h-[350px] object-cover flex-shrink-0">
                                 </div>
                                 <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" data-product-dots>
                                     <span class="w-2 h-2 rounded-full bg-gray-800 cursor-pointer" data-dot="0"></span>
@@ -1204,15 +1235,16 @@
                                     <span class="w-2 h-2 rounded-full bg-gray-300 cursor-pointer" data-dot="2"></span>
                                 </div>
                             </div>
-                            <div class="px-1 pb-3">
+                            <div class="px-1">
                                 <div class="flex items-baseline gap-2 flex-wrap mb-1">
-                                    <span class="text-[18px] font-bold text-gray-900">29 800 ₼</span>
-                                    <span class="text-sm text-gray-400 line-through">139 990 ₼</span>
-                                    <span class="text-sm font-bold text-red-500">-79%</span>
+                                    <span class="text-[18px] font-bold text-gray-900">72 500 ₼</span>
+                                    <span class="text-sm text-gray-400 line-through">249 990 ₼</span>
+                                    <span class="text-sm font-bold text-red-500">-71%</span>
                                 </div>
-                                <p class="text-[14px] text-gray-600">Qızıldan zəncir boyunbağı</p>
+                                <p class="text-[14px] text-gray-600">Qızıldan sırğalar</p>
                                 <button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl mt-3 hidden group-hover/card:block transition-all">Səbətə at</button>
                             </div>
+                            </a>
                         </div>
                     </div>
 
@@ -1247,73 +1279,93 @@
                     <div class="flex transition-transform duration-500 ease-in-out" id="kolleksiya-track" style="gap: 0;">
                         <!-- Collection 1 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
                                 <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
                             <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 2 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=400&q=80" alt="Elegance" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">SOKOLOV x Elegance</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 3 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80" alt="Kosmos" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">KOSMOS</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 4 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1596944925394-0a2b5c3e5c4a?auto=format&fit=crop&w=400&q=80" alt="Vivienne" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">SOKOLOV x VIVIENNE SABÓ</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 5 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=400&q=80" alt="Svoboda" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">Svoboda</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 6 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Brilliance" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">Brilliance</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 7 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=400&q=80" alt="Royal" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">Royal</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 8 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80" alt="Aura" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">Aura</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 9 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=400&q=80" alt="Charm" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">Charm</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                         <!-- Collection 10 -->
                         <div class="w-1/2 md:w-1/5 flex-shrink-0 px-2 cursor-pointer">
+                            <a href="products.html">
                             <div class="rounded-2xl overflow-hidden mb-3">
-                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80" alt="Eternity" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
+                                <img src="https://images.unsplash.com/photo-1529635612547-652d4461d579?auto=format&fit=crop&w=400&q=80" alt="Yeni il 2026" class="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-300">
                             </div>
-                            <p class="text-center font-semibold text-sm text-gray-900">Eternity</p>
+                            <p class="text-center font-semibold text-sm text-gray-900">YENİ İL 2026</p>
+                            </a>
                         </div>
                     </div>
 
@@ -1374,19 +1426,5 @@
     
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
-    
-    <!-- Banner Close Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const closeBanner = document.getElementById('close-banner');
-            const notificationBanner = document.getElementById('notification-banner');
-            
-            if (closeBanner && notificationBanner) {
-                closeBanner.addEventListener('click', function() {
-                    notificationBanner.style.display = 'none';
-                });
-            }
-        });
-    </script>
 </body>
 </html>

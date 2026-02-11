@@ -6,13 +6,14 @@
     <title>SOKOLOV - Sifarişi rəsmiləşdir</title>
     
     <!-- Tailwind CSS -->
+    <script src="js/carousel.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,9 +237,37 @@
                                     <input type="radio" name="payment" value="installment">
                                     <div>
                                         <span class="font-bold text-sm">Taksit</span>
-                                        <p class="text-xs text-gray-500 mt-0.5">3-12 ay</p>
+                                        <p class="text-xs text-gray-500 mt-0.5">3-18 ay</p>
                                     </div>
                                 </label>
+                            </div>
+
+                            <!-- Installment Options -->
+                            <div id="installment-options" class="hidden mt-4 p-4 bg-gray-50 rounded-xl">
+                                <h3 class="text-sm font-bold mb-3 text-gray-700">Taksit müddəti seçin:</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <label class="flex items-center gap-2 border-2 border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-blue-500 transition-colors installment-option">
+                                        <input type="radio" name="installment_months" value="3" class="text-blue-600">
+                                        <span class="font-medium text-sm">3 ay</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 border-2 border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-blue-500 transition-colors installment-option">
+                                        <input type="radio" name="installment_months" value="6" class="text-blue-600">
+                                        <span class="font-medium text-sm">6 ay</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 border-2 border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-blue-500 transition-colors installment-option">
+                                        <input type="radio" name="installment_months" value="9" class="text-blue-600">
+                                        <span class="font-medium text-sm">9 ay</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 border-2 border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-blue-500 transition-colors installment-option">
+                                        <input type="radio" name="installment_months" value="12" class="text-blue-600">
+                                        <span class="font-medium text-sm">12 ay</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 border-2 border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-blue-500 transition-colors installment-option">
+                                        <input type="radio" name="installment_months" value="18" class="text-blue-600">
+                                        <span class="font-medium text-sm">18 ay</span>
+                                    </label>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-3">* Aylıq ödəniş məbləği sifariş təsdiqləndikdən sonra hesablanacaq</p>
                             </div>
                         </div>
 
@@ -372,93 +401,6 @@
         </div>
     </footer>
 
-    <script>
-        lucide.createIcons();
-
-        // Delivery method toggle
-        const deliveryCourier = document.getElementById('delivery-courier');
-        const deliveryPickup = document.getElementById('delivery-pickup');
-        const addressSection = document.getElementById('address-section');
-        const pickupSection = document.getElementById('pickup-section');
-
-        function setDeliveryStyle(selected, other) {
-            selected.classList.add('border-blue-600', 'bg-blue-50');
-            selected.classList.remove('border-gray-200');
-            other.classList.remove('border-blue-600', 'bg-blue-50');
-            other.classList.add('border-gray-200');
-        }
-
-        deliveryCourier.addEventListener('change', () => {
-            setDeliveryStyle(deliveryCourier, deliveryPickup);
-            addressSection.classList.remove('hidden');
-            pickupSection.classList.add('hidden');
-            lucide.createIcons();
-        });
-
-        deliveryPickup.addEventListener('change', () => {
-            setDeliveryStyle(deliveryPickup, deliveryCourier);
-            addressSection.classList.add('hidden');
-            pickupSection.classList.remove('hidden');
-            lucide.createIcons();
-        });
-
-        // Store selection toggle
-        const storeLabels = document.querySelectorAll('#pickup-section label');
-        storeLabels.forEach(label => {
-            label.querySelector('input').addEventListener('change', () => {
-                storeLabels.forEach(l => {
-                    l.classList.remove('border-blue-600', 'bg-blue-50');
-                    l.classList.add('border-gray-200');
-                });
-                label.classList.add('border-blue-600', 'bg-blue-50');
-                label.classList.remove('border-gray-200');
-            });
-        });
-
-        // Payment method toggle
-        const payLabels = [document.getElementById('pay-card'), document.getElementById('pay-cash'), document.getElementById('pay-installment')];
-        payLabels.forEach(label => {
-            label.querySelector('input').addEventListener('change', () => {
-                payLabels.forEach(l => {
-                    l.classList.remove('border-blue-600', 'bg-blue-50');
-                    l.classList.add('border-gray-200');
-                });
-                label.classList.add('border-blue-600', 'bg-blue-50');
-                label.classList.remove('border-gray-200');
-            });
-        });
-
-        // Submit order
-        function submitOrder(e) {
-            if (e) e.preventDefault();
-            document.getElementById('checkout-form-section').classList.add('hidden');
-            document.getElementById('order-success').classList.remove('hidden');
-
-            // Update step indicators
-            const step2 = document.getElementById('step-2');
-            const step3 = document.getElementById('step-3');
-            step2.classList.remove('text-blue-600', 'font-bold');
-            step2.classList.add('text-gray-400');
-            step2.querySelector('span:first-child').classList.remove('bg-blue-600', 'text-white');
-            step2.querySelector('span:first-child').classList.add('border-2', 'border-gray-300');
-            step3.classList.remove('text-gray-400');
-            step3.classList.add('text-green-600', 'font-bold');
-            step3.querySelector('span:first-child').classList.remove('border-2', 'border-gray-300');
-            step3.querySelector('span:first-child').classList.add('bg-green-600', 'text-white');
-
-            lucide.createIcons();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        document.getElementById('checkout-form').addEventListener('submit', submitOrder);
-        document.getElementById('submit-order-btn').addEventListener('click', () => {
-            const form = document.getElementById('checkout-form');
-            if (form.checkValidity()) {
-                submitOrder();
-            } else {
-                form.reportValidity();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

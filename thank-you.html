@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKOLOV - Sifariş təsdiqlandi</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans text-gray-900 min-h-screen flex flex-col">
+
+    <!-- 1. Top Notification Bar (Pink) -->
+    <div class="bg-pink-300 text-gray-900 flex justify-between items-center px-4 py-1 text-xs font-bold relative z-[60]">
+        <div class="flex-1 text-center">
+            <span class="text-white bg-black px-1 mr-2 text-[10px]">-69%</span> 
+            HƏR ŞEYƏ *Ətraflı
+        </div>
+        <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer hover:text-gray-900"></i>
+    </div>
+
+    <!-- 2. Main Header Container -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div class="container mx-auto">
+            <div class="flex items-center py-4">
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700 flex-1">
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Bakı</span>
+                    </div>
+                    <a href="#" class="hover:text-black">Mağazalar</a>
+                    <a href="#" class="hover:text-black">Çatdırılma və ödəniş</a>
+                </div>
+                <button class="lg:hidden" id="menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <a href="index.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                    <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
+                </a>
+                <div class="flex items-center gap-6 flex-1 justify-end">
+                    <div class="hidden xl:flex flex-col items-end mr-4">
+                        <span class="font-bold text-sm">8 800 1000 750</span>
+                        <span class="text-xs text-gray-500">Sifariş üçün</span>
+                    </div>
+                    <div class="hidden xl:flex items-center gap-1 cursor-pointer relative" id="lang-selector">
+                        <span class="text-sm font-medium" id="lang-current">AZ</span>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center justify-between py-4">
+                <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    KATALOQ
+                </a>
+                <div class="w-1/2 relative">
+                    <input type="text" placeholder="Kataloq üzrə axtarış" class="w-full border border-gray-300 rounded px-4 py-3 pl-10 focus:outline-none focus:border-black transition-colors placeholder-gray-500 header-40px">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                </div>
+                <div class="flex items-center gap-8 text-gray-600">
+                    <div class="relative cursor-pointer" id="header-fav">
+                        <i data-lucide="heart" class="w-6 h-6 hover:text-red-500 transition-colors"></i>
+                        <span id="fav-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
+                    </div>
+                    <a href="cart.html" class="relative cursor-pointer" id="header-cart">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 hover:text-black transition-colors"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
+                    </a>
+                    <i data-lucide="message-circle" class="hidden md:block w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    <a href="login.html" class="hidden md:block">
+                        <i data-lucide="log-in" class="w-6 h-6 cursor-pointer hover:text-black transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 border-b border-gray-200">
+        <div class="container mx-auto py-3 px-4">
+            <nav class="flex items-center gap-2 text-xs text-gray-500">
+                <a href="index.html" class="hover:text-gray-900">Ana səhifə</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <a href="cart.html" class="hover:text-gray-900">Səbət</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <a href="checkout.html" class="hover:text-gray-900">Sifariş</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <span class="text-gray-900 font-medium">Təsdiq</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Thank You Content -->
+    <main class="flex-1 py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <!-- Success Icon & Message -->
+                <div class="text-center mb-10">
+                    <div class="w-24 h-24 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="check-circle" class="w-12 h-12 text-green-600"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-3">Sifarişiniz qəbul edildi!</h1>
+                    <p class="text-gray-500">Təşəkkür edirik, <span class="font-medium text-gray-900">Anar</span>! Sifarişiniz uğurla yerləşdirildi.</p>
+                </div>
+
+                <!-- Order Details Card -->
+                <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                        <span class="text-gray-500">Sifariş nömrəsi</span>
+                        <span class="font-bold text-lg">#SO-78432</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                        <span class="text-gray-500">Sifariş tarixi</span>
+                        <span class="font-medium">10 fevral 2026, 15:45</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                        <span class="text-gray-500">Ödəniş üsulu</span>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="credit-card" class="w-4 h-4 text-gray-400"></i>
+                            <span class="font-medium">Nağd çatdırılma</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                        <span class="text-gray-500">Çatdırılma ünvanı</span>
+                        <span class="font-medium text-right">Bakı, Yasamal rayonu,<br>Şərifzadə küç. 45, mən. 12</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                        <span class="text-gray-500">Çatdırılma tarixi</span>
+                        <span class="font-medium">12-14 fevral 2026</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-2">
+                        <span class="text-gray-500">Ümumi məbləğ</span>
+                        <span class="text-2xl font-bold text-gray-900">247 400 ₼</span>
+                    </div>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 mb-6">
+                    <h3 class="font-bold text-gray-900 mb-4">Sifarişin statusu</h3>
+                    <div class="relative">
+                        <!-- Progress Line -->
+                        <div class="absolute top-4 left-8 right-8 h-0.5 bg-gray-200">
+                            <div class="h-full bg-green-500 w-1/4"></div>
+                        </div>
+                        
+                        <!-- Steps -->
+                        <div class="flex justify-between relative z-10">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mb-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-xs font-medium text-gray-900">Sifariş<br>alındı</span>
+                            </div>
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mb-2">
+                                    <i data-lucide="package" class="w-4 h-4 text-gray-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400">Hazırlanır</span>
+                            </div>
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mb-2">
+                                    <i data-lucide="truck" class="w-4 h-4 text-gray-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400">Yoldadır</span>
+                            </div>
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mb-2">
+                                    <i data-lucide="home" class="w-4 h-4 text-gray-400"></i>
+                                </div>
+                                <span class="text-xs text-gray-400">Çatdırıldı</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Items Summary -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 mb-6">
+                    <h3 class="font-bold text-gray-900 mb-4">Sifariş edilən məhsullar (3)</h3>
+                    
+                    <!-- Item 1 -->
+                    <div class="flex gap-4 mb-4 pb-4 border-b border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=100&q=80" alt="Sırğa" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-900 mb-1">Qızıldan sırğalar brilyantla</h4>
+                            <p class="text-sm text-gray-500 mb-1">585 əyar • 2.45 qr</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">1 ədəd</span>
+                                <span class="font-bold">72 500 ₼</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="flex gap-4 mb-4 pb-4 border-b border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=100&q=80" alt="Üzük" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-900 mb-1">Qızıl üzük fianitlə</h4>
+                            <p class="text-sm text-gray-500 mb-1">750 əyar • 3.12 qr • 17 ölçü</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">1 ədəd</span>
+                                <span class="font-bold">98 900 ₼</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="flex gap-4">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=100&q=80" alt="Kolye" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-900 mb-1">Qızıl kolye brilyantla</h4>
+                            <p class="text-sm text-gray-500 mb-1">585 əyar • 4.20 qr • 45 sm</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">1 ədəd</span>
+                                <span class="font-bold">76 000 ₼</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Notification -->
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="mail" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                        <div>
+                            <p class="text-sm text-gray-700">Sifariş təsdiqi və qəbzi <span class="font-medium">anar@email.com</span> ünvanına göndərildi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="index.html" class="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        Alış-verişə davam et
+                    </a>
+                    <a href="profile.html" class="flex-1 inline-flex items-center justify-center gap-2 border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-bold py-3 px-6 rounded-xl transition-colors">
+                        <i data-lucide="list" class="w-5 h-5"></i>
+                        Sifarişlərim
+                    </a>
+                </div>
+
+                <!-- Support Info -->
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-500 mb-2">Sualınız var?</p>
+                    <div class="flex items-center justify-center gap-4">
+                        <a href="contact.html" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm">
+                            <i data-lucide="help-circle" class="w-4 h-4"></i>
+                            Əlaqə saxla
+                        </a>
+                        <span class="text-gray-300">|</span>
+                        <a href="tel:88001000750" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            8 800 1000 750
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-12">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Şirkət Haqqında</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Brend haqqında</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Mağazalar</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Xəbərlər</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Vakansiyalar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Alıcılara</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-900">Çatdırılma və ödəniş</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Geri qaytarma</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Bonus proqramı</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Ölçü cədvəli</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gray-900 font-bold mb-4 uppercase text-sm tracking-wider">Əlaqə</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>8 (800) 100-00-00</li>
+                    <li>support@sokolov.ru</li>
+                    <li class="flex gap-4 mt-4">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">IG</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">FB</div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 cursor-pointer">YT</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 border-t border-gray-300 pt-8 text-xs text-gray-400 text-center">
+            2026 SOKOLOV. Bütün hüquqlar qorunur.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

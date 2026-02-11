@@ -6,13 +6,14 @@
     <title>SOKOLOV - Səbət</title>
     
     <!-- Tailwind CSS -->
+    <script src="js/carousel.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -309,87 +310,6 @@
         </div>
     </footer>
 
-    <script>
-        lucide.createIcons();
-
-        function formatPrice(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₼';
-        }
-
-        function updateSummary() {
-            const items = document.querySelectorAll('[data-cart-item]');
-            let totalItems = 0;
-            let totalPrice = 0;
-
-            items.forEach(item => {
-                const qty = parseInt(item.querySelector('[data-qty-value]').textContent);
-                const price = parseInt(item.getAttribute('data-price'));
-                totalItems += qty;
-                totalPrice += price * qty;
-            });
-
-            document.getElementById('summary-count').textContent = totalItems;
-            document.getElementById('summary-subtotal').textContent = formatPrice(totalPrice);
-            document.getElementById('summary-total').textContent = formatPrice(totalPrice);
-            document.getElementById('cart-count-title').textContent = '(' + totalItems + ' məhsul)';
-
-            // Show empty cart if no items
-            if (items.length === 0) {
-                document.getElementById('cart-items').parentElement.classList.add('hidden');
-                document.getElementById('empty-cart').classList.remove('hidden');
-            }
-        }
-
-        // Quantity controls
-        document.querySelectorAll('[data-cart-item]').forEach(item => {
-            const minusBtn = item.querySelector('[data-qty-minus]');
-            const plusBtn = item.querySelector('[data-qty-plus]');
-            const qtyEl = item.querySelector('[data-qty-value]');
-
-            minusBtn.addEventListener('click', () => {
-                let qty = parseInt(qtyEl.textContent);
-                if (qty > 1) {
-                    qtyEl.textContent = qty - 1;
-                    updateSummary();
-                }
-            });
-
-            plusBtn.addEventListener('click', () => {
-                let qty = parseInt(qtyEl.textContent);
-                qtyEl.textContent = qty + 1;
-                updateSummary();
-            });
-        });
-
-        // Remove item
-        document.querySelectorAll('[data-remove-item]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.closest('[data-cart-item]');
-                item.style.transition = 'opacity 0.3s, transform 0.3s';
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(20px)';
-                setTimeout(() => {
-                    item.remove();
-                    updateSummary();
-                    lucide.createIcons();
-                }, 300);
-            });
-        });
-
-        // Promo code
-        document.getElementById('promo-btn').addEventListener('click', () => {
-            const input = document.getElementById('promo-input');
-            const msg = document.getElementById('promo-message');
-            if (input.value.trim()) {
-                msg.textContent = 'Promo kod tətbiq edildi!';
-                msg.classList.remove('hidden', 'text-red-500');
-                msg.classList.add('text-green-600');
-            } else {
-                msg.textContent = 'Promo kodu daxil edin';
-                msg.classList.remove('hidden', 'text-green-600');
-                msg.classList.add('text-red-500');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

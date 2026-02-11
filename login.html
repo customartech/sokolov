@@ -6,13 +6,14 @@
     <title>SOKOLOV - Daxil ol</title>
     
     <!-- Tailwind CSS -->
+    <script src="js/carousel.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +52,7 @@
                 </button>
 
                 <!-- Center: Logo -->
-                <a href="sokolov.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
+                <a href="index.html" class="text-3xl lg:text-4xl font-black tracking-widest cursor-pointer text-center flex-1 flex items-center justify-center">
                     <img src="logo.svg" alt="SOKOLOV" style="height: 30px;">
                 </a>
 
@@ -77,7 +78,7 @@
 
             <!-- Lower Row -->
             <div class="hidden lg:flex items-center justify-between py-4">
-                <a href="sokolov.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
+                <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold transition-colors header-40px">
                     <i data-lucide="menu" class="w-5 h-5"></i>
                     KATALOQ
                 </a>
@@ -228,60 +229,6 @@
         </div>
     </footer>
 
-    <!-- Lucide Icons Init -->
-    <script>
-        lucide.createIcons();
-
-        // Tab switching
-        const tabLogin = document.getElementById('tab-login');
-        const tabRegister = document.getElementById('tab-register');
-        const formLogin = document.getElementById('form-login');
-        const formRegister = document.getElementById('form-register');
-
-        tabLogin.addEventListener('click', () => {
-            tabLogin.classList.add('text-blue-600', 'border-blue-600', 'font-bold');
-            tabLogin.classList.remove('text-gray-500', 'border-transparent', 'font-medium');
-            tabRegister.classList.remove('text-blue-600', 'border-blue-600', 'font-bold');
-            tabRegister.classList.add('text-gray-500', 'border-transparent', 'font-medium');
-            formLogin.classList.remove('hidden');
-            formRegister.classList.add('hidden');
-        });
-
-        tabRegister.addEventListener('click', () => {
-            tabRegister.classList.add('text-blue-600', 'border-blue-600', 'font-bold');
-            tabRegister.classList.remove('text-gray-500', 'border-transparent', 'font-medium');
-            tabLogin.classList.remove('text-blue-600', 'border-blue-600', 'font-bold');
-            tabLogin.classList.add('text-gray-500', 'border-transparent', 'font-medium');
-            formRegister.classList.remove('hidden');
-            formLogin.classList.add('hidden');
-        });
-
-        // Terms checkbox -> register button toggle
-        const termsCheckbox = document.getElementById('terms-checkbox');
-        const registerBtn = document.getElementById('register-btn');
-        if (termsCheckbox && registerBtn) {
-            termsCheckbox.addEventListener('change', () => {
-                if (termsCheckbox.checked) {
-                    registerBtn.disabled = false;
-                    registerBtn.classList.remove('bg-blue-300', 'cursor-not-allowed');
-                    registerBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'cursor-pointer');
-                } else {
-                    registerBtn.disabled = true;
-                    registerBtn.classList.add('bg-blue-300', 'cursor-not-allowed');
-                    registerBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'cursor-pointer');
-                }
-            });
-        }
-
-        // Toggle password visibility
-        const toggleBtn = document.getElementById('toggle-password');
-        const passwordInput = document.getElementById('login-password');
-        if (toggleBtn && passwordInput) {
-            toggleBtn.addEventListener('click', () => {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
